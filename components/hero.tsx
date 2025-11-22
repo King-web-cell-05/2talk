@@ -5,10 +5,11 @@ import Button from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <section 
-    id="home"
-    className="w-full bg-[#0B0C10] text-white relative overflow-hidden">
-      <div className="relative w-full h-[95vh]">
+    <section
+      id="home"
+      className="w-full bg-[#0B0C10] text-white relative overflow-hidden"
+    >
+      <div className="relative w-full h-[98vh]">
         <Image
           src="/hero-img.jpg"
           alt="2Talk Hero"
@@ -22,7 +23,8 @@ export default function HeroSection() {
             Master Your Style
           </h1>
           <p className="text-gray-400 max-w-md text-lg">
-            Premium grooming products and expert barber services, delivered with precision.
+            Premium grooming products and expert barber services, delivered with
+            precision.
           </p>
 
           <div className="flex gap-4 mt-4">

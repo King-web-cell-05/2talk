@@ -1,6 +1,27 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Orbitron, Inter, Rajdhani } from "next/font/google";
+
+const orbitron = Orbitron({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-orbitron",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+  variable: "--font-inter",
+});
+
+const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-rajdhani",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
