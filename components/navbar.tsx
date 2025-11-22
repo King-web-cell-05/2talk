@@ -31,10 +31,69 @@ export default function Nav() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-12 h-16">
         {/* Logo */}
         <div
-          className="text-2xl font-bold text-[#00FFD1] tracking-widest cursor-pointer font-[var(--font-orbitron)]"
           onClick={() => scrollToSection("home")}
+          className="
+    relative cursor-pointer select-none 
+    font-[var(--font-orbitron)] 
+    group
+  "
         >
-          2TALK
+          {/* Animated Tech Ring */}
+          <div
+            className="
+      absolute -inset-2
+      rounded-full 
+      border border-[#00FFD1]/20 
+      group-hover:border-[#00FFD1]/40 
+      transition-all duration-700
+    "
+          ></div>
+
+          {/* Glow Pulse Behind */}
+          <div
+            className="
+      absolute inset-0 
+      blur-2xl 
+      bg-[#00FFD1]/30 
+      opacity-0 
+      group-hover:opacity-40 
+      transition-all duration-700
+    "
+          ></div>
+
+          {/* Hologram Shine */}
+          <span
+            className="
+      absolute inset-0 
+      bg-gradient-to-r 
+      from-transparent via-white/20 to-transparent 
+      translate-x-[-200%]
+      group-hover:translate-x-[200%]
+      duration-[1200ms]
+    "
+          ></span>
+
+          {/* Text */}
+          <span
+            className="
+      relative z-10 
+      text-3xl font-extrabold tracking-[0.25em] 
+      text-[#00FFD1]
+      drop-shadow-[0_0_10px_#00FFD1]
+      transition-all duration-700
+      group-hover:tracking-[0.35em]
+    "
+          >
+            2TALK
+          </span>
+
+          {/* Particle Grid */}
+      <div className="absolute -bottom-1 left-2 w-full flex gap-x-16 opacity-0 group-hover:opacity-60 transition-all duration-700">
+  <span className="w-1 h-1 bg-[#00FFD1] rounded-full"></span>
+  <span className="w-1 h-1 bg-[#00FFD1]/70 rounded-full"></span>
+  <span className="w-1 h-1 bg-[#00FFD1]/50 rounded-full"></span>
+</div>
+
         </div>
 
         {/* Desktop Links */}
@@ -43,7 +102,7 @@ export default function Nav() {
             <button
               key={link.name}
               onClick={() => scrollToSection(link.href)}
-              className="hover:text-[#00FFD1] hover:cursor-pointer transition-colors duration-300 text-lg tracking-wide"
+              className="hover:text-[#00FFD1] hover:cursor-pointer transition-colors duration-300 text-sm tracking-wide"
             >
               {link.name}
             </button>

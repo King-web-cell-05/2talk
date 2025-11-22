@@ -1,8 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import React from "react";
-import { Cpu, ShieldCheck, Gauge, Layers } from "lucide-react";
+import { Cpu, ShieldCheck,  Layers } from "lucide-react";
 
 export default function AboutSection() {
   return (
@@ -19,11 +18,10 @@ export default function AboutSection() {
         </h2>
 
         <p className="text-gray-300 max-w-3xl text-lg leading-relaxed mb-12">
-          At 2Talk, we blend high-end grooming with cutting-edge style. Our
-          mission is simple: to bring precision, quality, and modern aesthetics
-          into every service and product we offer. With a strong commitment to
-          excellence, we’ve engineered a grooming experience built for the
-          modern man.
+          At 2Talk, we blend high-end grooming with cutting-edge style. Our mission
+          is simple: to bring precision, quality, and modern aesthetics into every
+          service and product we offer. With a strong commitment to excellence,
+          we’ve engineered a grooming experience built for the modern man.
         </p>
 
         {/* Technical Feature Grid */}
