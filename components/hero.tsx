@@ -28,7 +28,7 @@ export default function HeroSection() {
           </p>
 
           <div className="flex gap-4 mt-4">
-            <Button className="bg-[#00FFD1] hover:bg-[#00e6c0] text-[#0B0C10] font-semibold transition-colors duration-300">
+            <Button className="bg-[#00FFD1] hover:bg-[#00e6c0] text-[#0B0C10] font-semibold transition-all duration-300 shadow-md hover:shadow-[#00FFD1]/30 font-[var(--font-inter)]">
               Book Now
             </Button>
           </div>
