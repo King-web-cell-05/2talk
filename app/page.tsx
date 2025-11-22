@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 
 const HeroSection = dynamic(() => import("@/components/hero"));
 const NavBar = dynamic(() => import("@/components/navbar"));
-
+const About = dynamic(() => import("@/components/about"));
 
 
 const page = () => {
@@ -13,6 +13,7 @@ const page = () => {
     <div>
       <HeroSection/>
       <NavBar/>
+      <About/>
     </div>
   )
 }

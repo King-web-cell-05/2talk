@@ -5,7 +5,9 @@ import Button from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="w-full bg-[#0B0C10] text-white relative overflow-hidden">
+    <section 
+    id="home"
+    className="w-full bg-[#0B0C10] text-white relative overflow-hidden">
       <div className="relative w-full h-[95vh]">
         <Image
           src="/hero-img.jpg"
