@@ -21,7 +21,7 @@ return (
   <nav className="w-full fixed top-0 left-0 z-50 bg-[#111] text-white shadow-md">
     <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-12 h-16">
       {/* Logo */}
-      <div className="text-2xl font-bold text-yellow-600 cursor-pointer">
+      <div className="text-2xl font-bold text-[#00FFD1] cursor-pointer">
         2Talk 
       </div>
 
@@ -31,12 +31,12 @@ return (
           <a
             key={link.name}
             href={link.href}
-            className="hover:text-yellow-600 transition-colors font-medium"
+            className="hover:text-[#00FFD1] transition-colors font-medium"
           >
             {link.name}
           </a>
         ))}
-        <Button className="bg-yellow-600 hover:bg-yellow-700 text-black font-semibold">
+        <Button className="text-[#00FFD1] hover:bg-[#00e6c0] text-black font-semibold">
           Book Now
         </Button>
       </div>
