@@ -1,12 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
 
-import React from "react";
 import dynamic from "next/dynamic";
 
 const HeroSection = dynamic(() => import("@/components/hero"));
 const NavBar = dynamic(() => import("@/components/navbar"));
 const TestimonialsSection = dynamic(() => import("@/components/Testimonials"));
 const ServicesSection = dynamic(() => import("@/components/services"));
+const FooterSection = dynamic(() => import("@/components/footer"));
 
 const page = () => {
   return (
@@ -15,6 +15,7 @@ const page = () => {
       <HeroSection />
       <ServicesSection />
       <TestimonialsSection />
+      <FooterSection />
     </div>
   );
 };

@@ -3,7 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Home, Info, Book, Phone, Instagram, Facebook, Youtube } from "lucide-react";
+import { Menu, X, Home, Info, Book, Phone, Instagram, Facebook, MessageCircle } from "lucide-react";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +95,7 @@ export default function Nav() {
               <Facebook size={24} />
             </a>
             <a className="text-[#00FFD1] hover:scale-110 transition-transform" href="#">
-              <Youtube size={24} />
+              <MessageCircle size={24} />
             </a>
           </div>
 
