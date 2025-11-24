@@ -4,7 +4,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import Button from "@/components/ui/button";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,11 +42,6 @@ export default function Nav() {
             </Link>
           ))}
 
-          <Link href="/book">
-            <Button className="bg-[#00FFD1] hover:bg-[#00e6c0] text-[#0B0C10] font-semibold transition-all duration-300 shadow-md hover:shadow-[#00FFD1]/30 font-[var(--font-inter)]">
-              Book Now
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -73,11 +67,7 @@ export default function Nav() {
             </Link>
           ))}
 
-          <Link href="/book" onClick={() => setIsOpen(false)}>
-            <Button className="bg-[#00FFD1] hover:bg-[#00e6c0] text-[#0B0C10] font-semibold transition-all duration-300 shadow-md hover:shadow-[#00FFD1]/30 font-[var(--font-inter)]">
-              Book Now
-            </Button>
-          </Link>
+      
         </div>
       )}
     </nav>
