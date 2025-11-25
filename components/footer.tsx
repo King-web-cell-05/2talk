@@ -21,7 +21,6 @@ transition={{ duration: 0.8, ease: "easeOut" }}
 className="w-full bg-[#111111] text-white pt-20 pb-10 px-6 md:px-20 relative"
 > <div className="absolute top-0 left-0 w-full h-[2px] bg-yellow-700/60" />
 
-```
   <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
     {/* BRAND */}
     <div>

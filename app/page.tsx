@@ -7,6 +7,7 @@ const NavBar = dynamic(() => import("@/components/navbar"));
 const TestimonialsSection = dynamic(() => import("@/components/Testimonials"));
 const ServicesSection = dynamic(() => import("@/components/services"));
 const FooterSection = dynamic(() => import("@/components/footer"));
+const CallToActionSection = dynamic(() => import("@/components/CallToAction"));
 
 const page = () => {
   return (
@@ -15,6 +16,7 @@ const page = () => {
       <HeroSection />
       <ServicesSection />
       <TestimonialsSection />
+      <CallToActionSection />
       <FooterSection />
     </div>
   );
