@@ -128,18 +128,36 @@ export default function Nav() {
           {/* DIVIDER */}
           <div className="w-full h-[1px] bg-[#2a2a2a]"></div>
 
-          {/* SOCIAL ICONS */}
-          <div className="flex items-center gap-6 relative">
-            {[Instagram, Facebook, MessageCircle].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
-              >
-                <Icon size={24} />
-              </a>
-            ))}
-          </div>
+       {/* SOCIAL ICONS */}
+<div className="flex items-center gap-6 relative">
+  <a
+    href="https://instagram.com"   
+    target="_blank"
+    rel="noopener noreferrer"
+    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
+  >
+    <Instagram size={24} />
+  </a>
+
+  <a
+    href="https://facebook.com"   
+    target="_blank"
+    rel="noopener noreferrer"
+    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
+  >
+    <Facebook size={24} />
+  </a>
+
+  <a
+    href="https://wa.me/2348082868332"   
+    target="_blank"
+    rel="noopener noreferrer"
+    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
+  >
+    <MessageCircle size={24} />
+  </a>
+</div>
+
 
           {/* COPYRIGHT */}
           <p className="text-xs text-gray-500 pt-4">

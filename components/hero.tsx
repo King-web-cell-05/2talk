@@ -24,7 +24,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="text-gray-300 max-w-lg text-lg md:text-xl leading-relaxed">
-            Premium grooming products and expert barber services, delivered with precision.
+            Dynamic entertainment services and premium grooming, delivered with precision.
           </p>
 
           <div className="flex gap-4 mt-4">
