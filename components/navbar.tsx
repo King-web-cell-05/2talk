@@ -13,8 +13,9 @@ import {
   Phone,
   Instagram,
   Facebook,
-  MessageCircle,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -154,7 +155,7 @@ export default function Nav() {
     rel="noopener noreferrer"
     className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
   >
-    <MessageCircle size={24} />
+    <FaWhatsapp size={24} />
   </a>
 </div>
 
