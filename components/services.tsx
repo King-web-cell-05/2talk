@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
+import Link from "next/link";
 import Button from "./ui/button";
 
 const services = [
@@ -65,10 +66,12 @@ export default function ServicesSection() {
               </p>
 
               {/* Button */}
-              <Button className="bg-yellow-700 hover:bg-yellow-600 text-black w-full py-3 text-md 
-                font-semibold rounded-md transition-all duration-300 shadow-md">
-                Book Now
-              </Button>
+              <Link href="/book">
+                <Button className="bg-yellow-700 hover:bg-yellow-600 text-black w-full py-3 text-md 
+                  font-semibold rounded-md transition-all duration-300 shadow-md">
+                  Book Now
+                </Button>
+              </Link>
             </div>
 
           </div>

@@ -98,7 +98,7 @@ className="w-full bg-[#111111] text-white pt-20 pb-10 px-6 md:px-20 relative"
             rel="noopener noreferrer"
             className="hover:text-yellow-600 transition-colors"
           >
-            No.4 Idera Street, Oworoshoki Lagos, Nigeria
+            No.2 Idera Street, Oworoshoki Lagos, Nigeria
           </a>
         </div>
       </div>

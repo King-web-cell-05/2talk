@@ -23,8 +23,8 @@ export default function CallToActionSection() {
         </h2>
 
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          Reserve your spot today and experience the Sharp Cuts difference. Our
-          expert barbers are ready to give you the look you deserve.
+          Reserve your spot today and experience premium grooming and modern barbering. We are
+           are ready to give you the look you deserve.
         </p>
 
         <div className="flex justify-center mt-10">

@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Music, Star, Users, Award } from "lucide-react";
 import Button from "./ui/button";
 
@@ -187,9 +188,11 @@ export default function AboutSection() {
       </motion.div>
 
       {/* Button */}
-      <Button className="bg-yellow-700 hover:bg-yellow-600 text-black font-semibold transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30 px-8 py-3 rounded-md">
-        Book Now
-      </Button>
+     <Link href="/book">
+       <Button className="bg-yellow-700 hover:bg-yellow-600 text-black font-semibold transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30 px-8 py-3 rounded-md">
+         Book Now
+       </Button>
+     </Link>
     </section>
   );
 }

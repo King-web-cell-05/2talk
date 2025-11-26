@@ -26,7 +26,7 @@ export default function Nav() {
     { name: "Home", href: "/", icon: <Home size={22} /> },
     { name: "About", href: "/about", icon: <Info size={22} /> },
     { name: "Book now", href: "/book", icon: <Book size={22} /> },
-    { name: "Get a Quote", href: "/quote", icon: <Phone size={22} /> },
+    { name: "Contact", href: "/contact", icon: <Phone size={22} /> },
   ];
 
   return (

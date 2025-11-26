@@ -93,7 +93,7 @@ export default function ConfirmBookingPage() {
       >
         Confirm Your Booking — {style.name}
       </motion.h1>
-      ```
+      
       <div className="max-w-4xl mx-auto bg-[#1a1a1a] p-12 md:p-16 rounded-3xl shadow-2xl border border-yellow-700/40 space-y-12">
         {/* Image & Price */}
         <div className="text-center space-y-4">
