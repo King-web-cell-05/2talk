@@ -10,7 +10,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative"
+      className="w-full bg-[#111] text-white min-h-screen py-24 px-6 md:px-20"
     >
       {/* Title */}
       <motion.h2
