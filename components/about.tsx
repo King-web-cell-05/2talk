@@ -20,7 +20,7 @@ export default function AboutSection() {
         transition={{ duration: 0.8 }}
         className="text-4xl md:text-5xl font-extrabold text-white mb-20 text-center drop-shadow-lg"
       >
-        About <span className="text-yellow-700">Us</span>
+        About <span className="text-yellow-600">Us</span>
       </motion.h2>
 
       {/* Intro Paragraph */}
@@ -45,7 +45,7 @@ export default function AboutSection() {
         transition={{ duration: 0.8 }}
         className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
       >
-        <h3 className="text-3xl font-bold text-yellow-700 mb-4">Our Story</h3>
+        <h3 className="text-3xl font-bold text-yellow-600 mb-4">Our Story</h3>
         <p className="text-gray-300 text-lg leading-relaxed max-w-4xl">
           Founded by AGBA GODWIN (a.k.a 2TALK), a seasoned MC and barbering
           enthusiast, HOUSE OF 2TALK ENTERTAINMENT was born to merge two
@@ -63,12 +63,12 @@ export default function AboutSection() {
         transition={{ duration: 0.8 }}
         className="space-y-6 mb-20"
       >
-        <h3 className="text-3xl font-bold text-yellow-700">What We Do</h3>
+        <h3 className="text-3xl font-bold text-yellow-600">What We Do</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Card */}
           <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Music className="text-yellow-700 w-12 h-12" />
+            <Music className="text-yellow-600 w-12 h-12" />
             <p className="text-gray-300 text-lg">
               Events & Activations: From concerts to comedy shows, we deliver
               unforgettable events.
@@ -76,7 +76,7 @@ export default function AboutSection() {
           </div>
 
           <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Star className="text-yellow-700 w-12 h-12" />
+            <Star className="text-yellow-600 w-12 h-12" />
             <p className="text-gray-300 text-lg">
               Music, Comedy, Football & Content Production: We create and
               produce podcasts, videos, and more.
@@ -84,7 +84,7 @@ export default function AboutSection() {
           </div>
 
           <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Award className="text-yellow-700 w-12 h-12" />
+            <Award className="text-yellow-600 w-12 h-12" />
             <p className="text-gray-300 text-lg">
               Barbering Services: Our skilled barbers deliver top-notch cuts
               and styling.
@@ -109,7 +109,7 @@ export default function AboutSection() {
         transition={{ duration: 0.8 }}
         className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
       >
-        <h3 className="text-3xl font-bold text-yellow-700 mb-6">Meet the Team</h3>
+        <h3 className="text-3xl font-bold text-yellow-600 mb-6">Meet the Team</h3>
         <ul className="text-gray-300 list-disc list-inside space-y-2 text-lg">
           <li>AGBA GODWIN A.K.A. 2TALK – Founder & MC</li>
           <li>DADA KINGLEY</li>
@@ -129,7 +129,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all"
         >
-          <h4 className="text-2xl font-bold text-yellow-700 mb-4">
+          <h4 className="text-2xl font-bold text-yellow-600 mb-4">
             Mission Statement
           </h4>
           <p className="text-gray-300 text-lg">
@@ -146,7 +146,7 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all"
         >
-          <h4 className="text-2xl font-bold text-yellow-700 mb-4">
+          <h4 className="text-2xl font-bold text-yellow-600 mb-4">
             Vision Statement
           </h4>
           <p className="text-gray-300 text-lg">
@@ -165,7 +165,7 @@ export default function AboutSection() {
         transition={{ duration: 0.8 }}
         className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
       >
-        <h3 className="text-3xl font-bold text-yellow-700 mb-6">Why Choose Us</h3>
+        <h3 className="text-3xl font-bold text-yellow-600 mb-6">Why Choose Us</h3>
         <ul className="text-gray-300 list-disc list-inside space-y-2 text-lg">
           <li>
             <strong>Shared Values:</strong> We partner with individuals and

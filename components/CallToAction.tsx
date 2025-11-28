@@ -18,7 +18,7 @@ export default function CallToActionSection() {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto text-center relative z-10"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-yellow-700 mb-6 tracking-wide">
+        <h2 className="text-4xl md:text-5xl font-bold text-yellow-600 mb-6 tracking-wide">
           Ready to Look Sharp?
         </h2>
 

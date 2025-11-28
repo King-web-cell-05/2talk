@@ -22,7 +22,7 @@ export default function Footer() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="w-full bg-[#111111] text-white pt-20 pb-10 px-6 md:px-20 relative"
     >
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-yellow-700/60" />
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-yellow-600" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
         {/* BRAND */}
@@ -39,7 +39,7 @@ export default function Footer() {
 
         {/* QUICK LINKS */}
         <div>
-          <h3 className="text-2xl font-bold text-yellow-700 mb-6 tracking-wide">
+          <h3 className="text-2xl font-bold text-yellow-600 mb-6 tracking-wide">
             Quick Links
           </h3>
 
@@ -64,13 +64,13 @@ export default function Footer() {
 
         {/* CONTACT */}
         <div>
-          <h3 className="text-2xl font-bold text-yellow-700 mb-6 tracking-wide">
+          <h3 className="text-2xl font-bold text-yellow-600 mb-6 tracking-wide">
             Contact
           </h3>
 
           <div className="space-y-5 text-lg text-gray-400">
             <div className="flex items-center gap-3">
-              <Phone className="text-yellow-700" size={22} />
+              <Phone className="text-yellow-600" size={22} />
               <a
                 href="tel:+2348082868332"
                 target="_blank"
@@ -82,7 +82,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-3">
-              <Mail className="text-yellow-700" size={22} />
+              <Mail className="text-yellow-600" size={22} />
               <a
                 href="mailto:support@2talk.com"
                 target="_blank"
@@ -94,7 +94,7 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-3">
-              <MapPin className="text-yellow-700" size={22} />
+              <MapPin className="text-yellow-600" size={22} />
               <a
                 href="https://www.google.com/maps/place/2+Idera+St,+Oworosoki,+Lagos+105102,+Lagos/"
                 target="_blank"
@@ -109,7 +109,7 @@ export default function Footer() {
 
         {/* SOCIALS */}
         <div>
-          <h3 className="text-2xl font-bold text-yellow-700 mb-6 tracking-wide">
+          <h3 className="text-2xl font-bold text-yellow-600 mb-6 tracking-wide">
             Follow Us
           </h3>
 

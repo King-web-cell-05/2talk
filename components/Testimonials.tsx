@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     name: "Mr Michael",
-    role: "Designer",
+    role: "Dancer",
     text: "The service is top-notch. Professional, clean, and stylish!",
   },
   {
@@ -43,7 +43,7 @@ export default function TestimonialSection() {
     <section className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative">
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        What Our <span className="text-yellow-700">Clients Say</span>
+        What Our <span className="text-yellow-600">Clients Say</span>
       </h2>
 
       {/* Testimonial Card */}

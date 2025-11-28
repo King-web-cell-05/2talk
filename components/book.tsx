@@ -57,7 +57,7 @@ export default function BookNowPage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-bold text-yellow-700 text-center mb-16"
+        className="text-4xl md:text-5xl font-bold text-yellow-600 text-center mb-16"
       >
         Book Your Appointment
       </motion.h1>
@@ -86,7 +86,7 @@ export default function BookNowPage() {
             </div>
 
             <div className="p-6">
-              <h3 className="text-2xl font-bold text-yellow-700 mb-2">
+              <h3 className="text-2xl font-bold text-yellow-600 mb-2">
                 {style.name}
               </h3>
               <p className="text-gray-300 text-lg">{style.price}</p>

@@ -32,7 +32,7 @@ export default function ServicesSection() {
       
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        Experience Our <span className="text-yellow-700"> Premium Services</span> 
+        Experience Our <span className="text-yellow-600"> Premium Services</span> 
       </h2>
 
       {/* Services Grid */}
