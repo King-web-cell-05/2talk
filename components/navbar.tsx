@@ -32,7 +32,7 @@ export default function Nav() {
 
   return (
     <nav className="w-full fixed top-0 left-0 z-50 bg-[#111111]/95 backdrop-blur-md border-b border-[#2a2a2a] text-white shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-14 h-20">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-14 h-22">
         {/* LOGO */}
         <Link
           href="/"
@@ -41,7 +41,7 @@ export default function Nav() {
           <img
             src="/2talk-logo-img.png"
             alt="2Talk Logo"
-            className="h-[120px] w-[120px] object-cover"
+            className="h-[160px] w-[160px] object-cover mb-4"
           />
         </Link>
 
