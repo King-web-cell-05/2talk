@@ -29,7 +29,7 @@ export default function HeroSection() {
             transition={{ duration: 1 }}
             className="text-4xl md:text-7xl font-extrabold max-w-2xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500 tracking-widest drop-shadow-lg"
           >
-            H2 Barbershop
+            H2 <br />Barbershop
           </motion.h1>
 
           <motion.h2

@@ -71,7 +71,7 @@ export default function ConfirmBookingPage() {
 
     const message = `Hello, I would like to book a "${style.name}" appointment.\nName: ${clientName}\nDay: ${selectedDay}\nTime: ${selectedTime}\nPrice: ${style.price}`;
     const encodedMessage = encodeURIComponent(message);
-    const phoneNumber = "2349065644691"; 
+    const phoneNumber = "2349065644691";
 
     // Open WhatsApp in a new tab
     window.open(
@@ -93,7 +93,7 @@ export default function ConfirmBookingPage() {
       >
         Confirm Your Booking — {style.name}
       </motion.h1>
-      
+
       <div className="max-w-4xl mx-auto bg-[#1a1a1a] p-12 md:p-16 rounded-3xl shadow-2xl border border-yellow-700/40 space-y-12">
         {/* Image & Price */}
         <div className="text-center space-y-4">
@@ -163,7 +163,12 @@ export default function ConfirmBookingPage() {
         <div className="flex justify-center">
           <Button
             onClick={handleWhatsAppBooking}
-            className="bg-yellow-600 hover:bg-yellow-500 text-black font-bold text-xl px-12 py-5 rounded-2xl shadow-lg hover:shadow-yellow-500/40 transition-all duration-300"
+            className="bg-yellow-600 hover:bg-yellow-500 text-black font-normal 
+             text-lg md:text-xl 
+             px-6 py-4 md:px-12 md:py-5 
+             rounded-2xl w-full sm:w-auto 
+             shadow-lg hover:shadow-yellow-500/40 
+             transition-all duration-300"
           >
             Confirm Booking
           </Button>

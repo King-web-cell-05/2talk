@@ -97,7 +97,7 @@ export default function BookNowPage() {
                 onClick={() =>
                   (window.location.href = `/confirmbooking?styleId=${style.id}`)
                 }
-                className="w-full py-4 rounded-xl mt-4 bg-yellow-700 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30"
+                className="w-full py-5 rounded-xl mt-4 bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30"
               >
                 Book Now
               </Button>
