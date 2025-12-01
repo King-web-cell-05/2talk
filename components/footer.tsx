@@ -119,7 +119,7 @@ export default function Footer() {
               href="https://instagram.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-700 hover:text-black transition-all duration-300"
+              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
             >
               <Instagram size={26} />
             </a>
@@ -129,7 +129,7 @@ export default function Footer() {
               href="https://facebook.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-700 hover:text-black transition-all duration-300"
+              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
             >
               <Facebook size={26} />
             </a>
@@ -139,7 +139,7 @@ export default function Footer() {
               href="https://twitter.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-700 hover:text-black transition-all duration-300"
+              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
             >
               <Twitter size={26} />
             </a>
@@ -149,7 +149,7 @@ export default function Footer() {
               href="https://youtube.com/@yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-700 hover:text-black transition-all duration-300"
+              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
             >
               <Youtube size={26} />
             </a>
@@ -159,7 +159,7 @@ export default function Footer() {
               href="https://tiktok.com/@yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-700 hover:text-black transition-all duration-300"
+              className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
             >
               <FaTiktok size={26} />
             </a>
