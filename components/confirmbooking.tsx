@@ -89,7 +89,9 @@ export default function ConfirmBookingPage() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-extrabold text-yellow-600 text-center mb-16 tracking-wide"
+        className="  text-center text-4xl md:text-6xl font-extrabold tracking-wider 
+          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
+           mb-20"
       >
         Confirm Your Booking — {style.name}
       </motion.h1>

@@ -14,90 +14,86 @@ const hairstyles = [
   { id: 6, name: "Mohawk", price: "₦2,000", image: "/placeholder6.jpg" },
 ];
 
-const daysOfWeek = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
-
-const generateTimeSlots = () => {
-  const times = [];
-  let hour = 9;
-  let minute = 0;
-
-  while (hour < 21 || (hour === 21 && minute === 0)) {
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const displayHour = hour > 12 ? hour - 12 : hour;
-    const displayMin = minute === 0 ? "00" : minute;
-
-    times.push(`${displayHour}:${displayMin} ${ampm}`);
-
-    minute += 30;
-    if (minute === 60) {
-      minute = 0;
-      hour++;
-    }
-  }
-
-  return times;
-};
-
-const timeSlots = generateTimeSlots();
-
 export default function BookNowPage() {
   const [selectedStyle, setSelectedStyle] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-[#111] text-white min-h-screen py-24 px-6 md:px-20">
+    <section className="w-full min-h-screen bg-[#0D0D0D] text-white py-24 px-6 md:px-20">
+
+      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-bold text-yellow-600 text-center mb-16"
+        className="
+          text-center text-4xl md:text-6xl font-extrabold tracking-wider 
+          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
+           mb-20
+        "
       >
         Book Your Appointment
       </motion.h1>
 
-      {/* Hairstyle Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">
+      {/* Hairstyle Grid */}
+      <div className="
+        grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 
+        place-items-center
+      ">
         {hairstyles.map((style) => (
           <motion.div
             key={style.id}
             onClick={() => setSelectedStyle(style.id)}
-            whileHover={{ scale: 1.03 }}
-            className={`bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-xl cursor-pointer border transition-all
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.25 }}
+            className={`
+              w-full max-w-sm rounded-3xl overflow-hidden cursor-pointer
+              bg-[#111111]/60 backdrop-blur-xl border 
+              shadow-[0_0_25px_rgba(0,0,0,0.45)] transition-all relative
+
               ${
                 selectedStyle === style.id
-                  ? "border-yellow-600"
-                  : "border-transparent"
+                  ? "border-yellow-500 shadow-[0_0_20px_rgba(255,200,0,0.5)]"
+                  : "border-[#1f1f1f]"
               }
             `}
           >
-            <div className="w-full h-60 bg-[#2a2a2a]">
-              <img
+            {/* Image */}
+            <div className="w-full h-60 overflow-hidden relative">
+              <motion.img
                 src={style.image}
                 alt={style.name}
                 className="w-full h-full object-cover"
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.5 }}
               />
+
+              {/* top gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#000]/70 to-transparent"></div>
             </div>
 
-            <div className="p-6">
-              <h3 className="text-2xl font-bold text-yellow-600 mb-2">
+            {/* Text */}
+            <div className="p-6 space-y-2">
+              <h3 className="text-2xl font-bold text-yellow-500 tracking-wide">
                 {style.name}
               </h3>
-              <p className="text-gray-300 text-lg">{style.price}</p>
+              <p className="text-lg text-gray-300">{style.price}</p>
             </div>
 
-            <div className="p-6 pt-0">
+            {/* Button */}
+            <div className="px-6 pb-6">
               <Button
                 onClick={() =>
                   (window.location.href = `/confirmbooking?styleId=${style.id}`)
                 }
-                className="w-full py-5 rounded-xl mt-4 bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30"
+                className="
+                  w-full mt-2 py-4 rounded-xl font-semibold text-black 
+                  bg-gradient-to-r from-yellow-600 to-yellow-500
+                  hover:from-yellow-500 hover:to-yellow-400
+                  transition-all duration-300
+
+                  shadow-[0_0_12px_rgba(255,220,90,0.3)]
+                  hover:shadow-[0_0_20px_rgba(255,220,90,0.5)]
+                "
               >
                 Book Now
               </Button>
