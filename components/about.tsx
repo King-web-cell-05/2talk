@@ -10,189 +10,194 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="w-full bg-[#111] text-white min-h-screen py-24 px-6 md:px-20 "
+      className="w-full bg-[#0D0D0D] text-white py-28 px-6 md:px-20 overflow-hidden"
     >
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-5xl font-extrabold text-white mb-20 text-center drop-shadow-lg"
-      >
-        About <span className="text-yellow-600">Us</span>
-      </motion.h2>
-
-      {/* Intro Paragraph */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="text-gray-300 max-w-4xl text-lg md:text-xl mx-auto leading-relaxed text-center mb-20"
-      >
-        HOUSE OF 2TALK ENTERTAINMENT is a dynamic entertainment company that
-        brings together the best of barbering and entertainment. We're
-        passionate about delivering top-notch services, creating unforgettable
-        experiences, and pushing the boundaries of creativity.
-      </motion.p>
-
-      {/* Our Story */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
-      >
-        <h3 className="text-3xl font-bold text-yellow-600 mb-4">Our Story</h3>
-        <p className="text-gray-300 text-lg leading-relaxed max-w-4xl">
-          Founded by AGBA GODWIN (a.k.a 2TALK), a seasoned MC and barbering
-          enthusiast, HOUSE OF 2TALK ENTERTAINMENT was born to merge two
-          worlds that inspire us. With a finger on the pulse of trends and a
-          commitment to excellence, we're redefining the entertainment
-          landscape.
-        </p>
-      </motion.div>
-
-      {/* What We Do */}
-      <motion.div
-        initial={{ opacity: 0, x: 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="space-y-6 mb-20"
-      >
-        <h3 className="text-3xl font-bold text-yellow-600">What We Do</h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Card */}
-          <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Music className="text-yellow-600 w-12 h-12" />
-            <p className="text-gray-300 text-lg">
-              Events & Activations: From concerts to comedy shows, we deliver
-              unforgettable events.
-            </p>
-          </div>
-
-          <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Star className="text-yellow-600 w-12 h-12" />
-            <p className="text-gray-300 text-lg">
-              Music, Comedy, Football & Content Production: We create and
-              produce podcasts, videos, and more.
-            </p>
-          </div>
-
-          <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Award className="text-yellow-600 w-12 h-12" />
-            <p className="text-gray-300 text-lg">
-              Barbering Services: Our skilled barbers deliver top-notch cuts
-              and styling.
-            </p>
-          </div>
-
-          <div className="flex gap-4 items-start bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-8 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all">
-            <Users className="text-yellow-700 w-12 h-12" />
-            <p className="text-gray-300 text-lg">
-              Talent Management: We represent a roster of talented artists and
-              performers.
-            </p>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Meet the Team */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
-      >
-        <h3 className="text-3xl font-bold text-yellow-600 mb-6">Meet the Team</h3>
-        <ul className="text-gray-300 list-disc list-inside space-y-2 text-lg">
-          <li>AGBA GODWIN A.K.A. 2TALK – Founder & MC</li>
-          <li>DADA KINGLEY</li>
-          <li>MBATHA ESTHER</li>
-          <li>MUSTAPHA TUNDE</li>
-          <li>MICHAEL</li>
-          <li>OLA</li>
-        </ul>
-      </motion.div>
-
-      {/* Mission & Vision */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+      {/* HEADER BLOCK */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all"
+          className="space-y-6"
         >
-          <h4 className="text-2xl font-bold text-yellow-600 mb-4">
-            Mission Statement
-          </h4>
-          <p className="text-gray-300 text-lg">
-            To entertain, inspire, and connect people through music,
-            barbering, and creativity, delivering exceptional experiences
-            and pushing boundaries.
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            <span className="text-yellow-600">HOUSE OF 2TALK</span> ENTERTAINMENT
+          </h2>
+
+          <p className="text-gray-300 text-lg leading-relaxed">
+            A next-generation entertainment powerhouse merging 
+            <span className="text-yellow-600 font-semibold"> barbering</span>,
+            <span className="text-yellow-600 font-semibold"> music</span>, 
+            <span className="text-yellow-600 font-semibold"> events</span>, 
+            and <span className="text-yellow-600 font-semibold">creative production</span>.
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all"
+          className="relative bg-[#111] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl backdrop-blur"
         >
-          <h4 className="text-2xl font-bold text-yellow-600 mb-4">
-            Vision Statement
-          </h4>
-          <p className="text-gray-300 text-lg">
-            To be the leading entertainment company in Nigeria, blending
-            barbering and entertainment, respected for excellence,
-            creativity, and community impact.
+          <h3 className="text-3xl font-bold text-yellow-600 mb-3">Our Story</h3>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Founded by AGBA GODWIN (a.k.a 2TALK), our brand was built to fuse 
+            creativity, performance, skill, and culture into one unstoppable 
+            entertainment force.
           </p>
         </motion.div>
       </div>
 
-      {/* Why Choose Us */}
+      {/* SECTION DIVIDER */}
+      <div className="w-full h-px bg-[#1f1f1f] my-24" />
+
+      {/* WHAT WE DO */}
+      <div className="max-w-6xl mx-auto mb-28">
+        <motion.h3
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-yellow-600 mb-14 text-center"
+        >
+          What We Do
+        </motion.h3>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            {
+              icon: <Music className="w-8 h-8 text-yellow-600" />,
+              title: "Events & Activations",
+              text: "From concerts to comedy shows, we produce unforgettable live experiences.",
+            },
+            {
+              icon: <Star className="w-8 h-8 text-yellow-600" />,
+              title: "Media & Production",
+              text: "Music, comedy, football content, podcasting, and high-end creative production.",
+            },
+            {
+              icon: <Award className="w-8 h-8 text-yellow-600" />,
+              title: "Barbering Services",
+              text: "Professional grooming and elite styling from skilled barbers.",
+            },
+            {
+              icon: <Users className="w-8 h-8 text-yellow-600" />,
+              title: "Talent Management",
+              text: "We manage talented performers and help them reach the next level.",
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="relative group bg-[#111] border border-[#2a2a2a] rounded-2xl p-8 shadow-lg hover:border-yellow-600 transition-all"
+            >
+              <div className="mb-4">{item.icon}</div>
+              <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+              <p className="text-gray-300">{item.text}</p>
+
+              {/* Neon hover bar */}
+              <div className="absolute bottom-0 left-0 w-0 group-hover:w-full h-1 bg-yellow-600 transition-all"></div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* SECTION DIVIDER */}
+      <div className="w-full h-px bg-[#1f1f1f] my-24" />
+
+      {/* TEAM SECTION */}
+      <div className="max-w-5xl mx-auto mb-28">
+        <h3 className="text-4xl font-bold text-yellow-600 mb-10 text-center">
+          Meet the Team
+        </h3>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+          {[
+            "AGBA GODWIN A.K.A 2TALK – Founder & MC",
+            "DADA KINGLEY",
+            "MBATHA ESTHER",
+            "MUSTAPHA TUNDE",
+            "MICHAEL",
+            "OLA",
+          ].map((name, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#111] border border-[#2a2a2a] rounded-xl py-6 px-4 hover:border-yellow-600 transition-all"
+            >
+              <p className="text-gray-300">{name}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* SECTION DIVIDER */}
+      <div className="w-full h-px bg-[#1f1f1f] my-24" />
+
+      {/* MISSION & VISION */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-14 mb-28">
+        {[
+          {
+            title: "Mission Statement",
+            text: "To entertain, inspire, and connect people through music, barbering, and creativity—delivering exceptional experiences.",
+          },
+          {
+            title: "Vision Statement",
+            text: "To become Nigeria’s leading entertainment brand—known for innovation, culture, and creative excellence.",
+          },
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: i === 0 ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="bg-[#111] border border-[#2a2a2a] rounded-2xl p-10 shadow-lg"
+          >
+            <h4 className="text-2xl font-bold text-yellow-600 mb-4">
+              {item.title}
+            </h4>
+            <p className="text-gray-300 text-lg">{item.text}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* WHY CHOOSE US */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="bg-[#1A1A1A] border border-[#2a2a2a] rounded-3xl p-10 shadow-xl hover:shadow-[0_0_25px_rgba(0,0,0,0.6)] transition-all mb-20"
+        viewport={{ once: true }}
+        className="max-w-6xl mx-auto bg-[#111] border border-[#2a2a2a] rounded-2xl p-12 shadow-xl mb-20"
       >
-        <h3 className="text-3xl font-bold text-yellow-600 mb-6">Why Choose Us</h3>
-        <ul className="text-gray-300 list-disc list-inside space-y-2 text-lg">
-          <li>
-            <strong>Shared Values:</strong> We partner with individuals and
-            organizations that prioritize innovation, hard work, and
-            dedication.
-          </li>
-          <li>
-            <strong>Unique Opportunities:</strong> Always seeking fresh ideas,
-            new talent, and exciting projects aligned with our mission.
-          </li>
-          <li>
-            <strong>Mutual Growth:</strong> Collaboration helps both our
-            partners and us grow and succeed.
-          </li>
-          <li>
-            <strong>Fun & Creativity:</strong> We love pushing boundaries,
-            exploring new frontiers, and having a good time.
-          </li>
+        <h3 className="text-4xl font-bold text-yellow-600 mb-6">
+          Why Choose Us
+        </h3>
+
+        <ul className="text-gray-300 space-y-3 text-lg">
+          <li><strong>Shared Values:</strong> Innovation, ambition, and consistency drive our work.</li>
+          <li><strong>Unique Opportunities:</strong> Always open to fresh ideas and new collaborations.</li>
+          <li><strong>Mutual Growth:</strong> We elevate partners while scaling our vision.</li>
+          <li><strong>Fun & Creativity:</strong> Entertainment built on passion and limitless imagination.</li>
         </ul>
       </motion.div>
 
-      {/* Button */}
-     <Link href="/book">
-       <Button className="bg-yellow-700 hover:bg-yellow-600 text-black font-semibold transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30 px-8 py-3 rounded-md">
-         Book Now
-       </Button>
-     </Link>
+      {/* CTA BUTTON */}
+      <div className="text-center">
+        <Link href="/book">
+          <Button className="bg-yellow-700 hover:bg-yellow-600 text-black text-lg font-semibold px-10 py-4 rounded-xl">
+            Book Now
+          </Button>
+        </Link>
+      </div>
     </section>
   );
 }
