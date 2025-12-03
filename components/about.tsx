@@ -22,15 +22,21 @@ export default function AboutSection() {
           className="space-y-6"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            <span className="text-yellow-600">HOUSE OF 2TALK</span> ENTERTAINMENT
+            <span className="text-yellow-600">HOUSE OF 2TALK</span>{" "}
+            ENTERTAINMENT
           </h2>
 
           <p className="text-gray-300 text-lg leading-relaxed">
-            A next-generation entertainment powerhouse merging 
-            <span className="text-yellow-600 font-semibold"> barbering</span>,
-            <span className="text-yellow-600 font-semibold"> music</span>, 
-            <span className="text-yellow-600 font-semibold"> events</span>, 
-            and <span className="text-yellow-600 font-semibold">creative production</span>.
+            A dynamic entertainment company that brings together the best of
+            <span className="text-yellow-600 font-semibold"> barbering </span>
+            and
+            <span className="text-yellow-600 font-semibold">
+              {" "}
+              entertainment. <br />
+            </span>
+            We're passionate about delivering top-notch services, creating
+            unforgettable experiences, and pushing the boundaries of
+            <span className="text-yellow-600 font-semibold"> creativity</span>.
           </p>
         </motion.div>
 
@@ -43,9 +49,11 @@ export default function AboutSection() {
         >
           <h3 className="text-3xl font-bold text-yellow-600 mb-3">Our Story</h3>
           <p className="text-gray-300 text-lg leading-relaxed">
-            Founded by AGBA GODWIN (a.k.a 2TALK), our brand was built to fuse 
-            creativity, performance, skill, and culture into one unstoppable 
-            entertainment force.
+            Founded by AGBA GODWIN (a.k.a 2TALK), a seasoned MC and barbering
+            enthusiast, HOUSE OF 2TALK ENTERTAINMENT was born to merge two
+            worlds that inspire us. With a finger on the pulse of trends and a
+            commitment to excellence, we're redefining the entertainment
+            landscape.
           </p>
         </motion.div>
       </div>
@@ -147,11 +155,11 @@ export default function AboutSection() {
         {[
           {
             title: "Mission Statement",
-            text: "To entertain, inspire, and connect people through music, barbering, and creativity—delivering exceptional experiences.",
+            text: "To entertain, inspire, and connect people through music, barbering, and creativity, delivering exceptional experiences and pushing boundaries.",
           },
           {
             title: "Vision Statement",
-            text: "To become Nigeria’s leading entertainment brand—known for innovation, culture, and creative excellence.",
+            text: "To be the leading entertainment company in Nigeria, blending barbering and entertainment, respected for excellence, creativity, and community impact.",
           },
         ].map((item, i) => (
           <motion.div
@@ -183,10 +191,22 @@ export default function AboutSection() {
         </h3>
 
         <ul className="text-gray-300 space-y-3 text-lg">
-          <li><strong>Shared Values:</strong> Innovation, ambition, and consistency drive our work.</li>
-          <li><strong>Unique Opportunities:</strong> Always open to fresh ideas and new collaborations.</li>
-          <li><strong>Mutual Growth:</strong> We elevate partners while scaling our vision.</li>
-          <li><strong>Fun & Creativity:</strong> Entertainment built on passion and limitless imagination.</li>
+          <li>
+            <strong>Shared Values:</strong> Innovation, ambition, and
+            consistency drive our work.
+          </li>
+          <li>
+            <strong>Unique Opportunities:</strong> Always open to fresh ideas
+            and new collaborations.
+          </li>
+          <li>
+            <strong>Mutual Growth:</strong> We elevate partners while scaling
+            our vision.
+          </li>
+          <li>
+            <strong>Fun & Creativity:</strong> Entertainment built on passion
+            and limitless imagination.
+          </li>
         </ul>
       </motion.div>
 
