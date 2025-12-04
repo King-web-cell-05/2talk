@@ -18,7 +18,7 @@ export default function CallToActionSection() {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto text-center relative z-10"
       >
-        <h2 className="text-4xl md:text-5xl font-bold text-yellow-600 mb-6 tracking-wide">
+        <h2 className="text-4xl md:text-5xl font-bold  mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">
           Ready to Look Sharp?
         </h2>
 
@@ -29,7 +29,7 @@ export default function CallToActionSection() {
 
         <div className="flex justify-center mt-10">
           <Link href="/book">
-            <Button className="bg-yellow-700 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30">
+            <Button className="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30">
               Book Your Appointment
             </Button>
           </Link>

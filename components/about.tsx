@@ -22,7 +22,7 @@ export default function AboutSection() {
           className="space-y-6"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            <span className="text-yellow-600">HOUSE OF 2TALK</span>{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">HOUSE OF 2TALK</span>{" "}
             ENTERTAINMENT
           </h2>
 
@@ -213,7 +213,7 @@ export default function AboutSection() {
       {/* CTA BUTTON */}
       <div className="text-center">
         <Link href="/book">
-          <Button className="bg-yellow-700 hover:bg-yellow-600 text-black text-lg font-semibold px-10 py-4 rounded-xl">
+          <Button className="bg-yellow-600 hover:bg-yellow-500 text-black text-lg font-semibold px-10 py-4 rounded-xl">
             Book Now
           </Button>
         </Link>

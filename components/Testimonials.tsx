@@ -43,7 +43,7 @@ export default function TestimonialSection() {
     <section className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative">
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        What Our <span className="text-yellow-600">Clients Say</span>
+        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">Clients Say</span>
       </h2>
 
       {/* Testimonial Card */}
