@@ -57,7 +57,7 @@ export default function HeroSection() {
             className="flex gap-4 mt-4"
           >
             <Link href="/book">
-              <Button className="bg-yellow-700 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30">
+              <Button className="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30">
                 Book Now
               </Button>
             </Link>

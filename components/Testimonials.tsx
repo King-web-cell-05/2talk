@@ -61,7 +61,7 @@ export default function TestimonialSection() {
             {/* Stars */}
             <div className="flex justify-center gap-2 mb-6">
               {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} size={22} className="text-yellow-700 fill-yellow-700" />
+                <Star key={i} size={22} className="text-yellow-600 fill-yellow-600" />
               ))}
             </div>
 
@@ -84,8 +84,8 @@ export default function TestimonialSection() {
           <span
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 border border-yellow-700
-            ${idx === current ? "bg-yellow-700" : "bg-transparent"}`}
+            className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 border border-yellow-600
+            ${idx === current ? "bg-yellow-600" : "bg-transparent"}`}
           />
         ))}
       </div>
