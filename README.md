@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📌 Project Overview
 
-## Getting Started
+House of 2-Talk Entertainment Barbing website is a modern, responsive barber booking web application built using Next.js, React, and Tailwind CSS. The platform allows users to:
 
-First, run the development server:
+Browse a curated list of hairstyles.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+View pricing, duration, and style previews.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Select a preferred date and time.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Confirm appointments directly via WhatsApp.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The website is optimized for mobile and desktop, provides a sleek UI/UX, and leverages Framer Motion for smooth animations.
 
-## Learn More
+🎯 Features
 
-To learn more about Next.js, take a look at the following resources:
+Interactive Hairstyle Selection: Clickable style cards with hover animations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Date & Time Booking: Choose from dynamic date slots and a dropdown time picker.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Real-time Summary Panel: View a sticky booking summary with selected options.
 
-## Deploy on Vercel
+WhatsApp Integration: Instantly send booking details to barber via WhatsApp.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Responsive Design: Fully optimized for mobile, tablet, and desktop screens.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Framer Motion Animations: Smooth fade-ins, hover effects, and transitions.
+
+Dark Theme UI: Modern dark theme with gold highlights for premium feel.
+
+🛠 Tech Stack
+
+Framework: Next.js 13
+ (App Router)
+
+Frontend Library: React 18
+
+Styling: Tailwind CSS 4
+
+Animations: Framer Motion
+
+Icons: Lucide React
+ & React Icons
+
+Deployment: Vercel
+
+TypeScript for type safety and maintainability
