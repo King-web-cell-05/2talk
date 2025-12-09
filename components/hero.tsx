@@ -29,7 +29,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-4xl md:text-7xl font-extrabold max-w-2xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500 tracking-widest drop-shadow-lg"
+              className="text-4xl md:text-6xl font-extrabold max-w-2xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500 tracking-widest drop-shadow-lg"
             >
               H2 <br />
               Barbershop
@@ -39,7 +39,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-4xl md:text-6xl font-extrabold max-w-2xl leading-tight text-white drop-shadow-xl"
+              className="text-4xl md:text-5xl font-extrabold max-w-2xl leading-tight text-white drop-shadow-xl"
             >
               Master Your Style
             </motion.h2>
