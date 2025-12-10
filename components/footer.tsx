@@ -89,7 +89,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-yellow-600 transition-colors"
               >
-                support@2talk.com
+              contact@h2barbershop.com
               </a>
             </div>
 
