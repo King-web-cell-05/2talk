@@ -13,7 +13,7 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="
           text-center text-4xl md:text-6xl font-extrabold tracking-wider
-          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
+          text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-500
         "
       >
         Contact Us
@@ -48,7 +48,7 @@ export default function Contact() {
                 <Phone className="text-yellow-500 w-7 h-7" />
                 <div>
                   <p className="font-semibold text-gray-200">Phone:</p>
-                  <p className="text-gray-400 text-lg">+234 800 000 0000</p>
+                  <p className="text-gray-400 text-lg">+234 808 286 8332</p>
                 </div>
               </div>
 
@@ -67,7 +67,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-gray-200">Location:</p>
                   <p className="text-gray-400 text-lg">
-                    24 Barber Lane, Lagos, Nigeria
+                   No.2 Idera Street, Oworoshoki Lagos, Nigeria
                   </p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export default function Contact() {
             p-10 shadow-xl backdrop-blur-md space-y-8
           "
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 tracking-wide">
+          <h2 className="text-2xl md:text-3xl font-bold text-yellow-600 tracking-wide">
             Send Us a Message
           </h2>
 
@@ -131,8 +131,8 @@ export default function Contact() {
               type="submit"
               className="
                 w-full mt-4 py-4 rounded-xl font-semibold text-black
-                bg-gradient-to-r from-yellow-600 to-yellow-500
-                hover:from-yellow-500 hover:to-yellow-400
+                bg-gradient-to-r from-yellow-700 to-yellow-600
+                hover:from-yellow-600 hover:to-yellow-500
                 transition-all duration-300 shadow-[0_0_15px_rgba(255,220,90,0.3)]
                 hover:shadow-[0_0_25px_rgba(255,220,90,0.5)]
               "
