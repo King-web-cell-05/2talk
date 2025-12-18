@@ -29,14 +29,14 @@ const hairstyles = [
     name: "Taper Fade",
     prices: { shop: 2000, home: 5000 },
     image: "/placeholder3.jpg",
-    duration: "30m",
+    duration: "35m",
   },
   {
     id: 4,
     name: "Afro",
     prices: { shop: 2000, home: 5000 },
     image: "/placeholder4.jpg",
-    duration: "45m",
+    duration: "30m",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ const hairstyles = [
   },
   {
     id: 6,
-    name: "Mohawk",
+    name: "Side Cut",
     prices: { shop: 2000, home: 5000 },
     image: "/placeholder6.jpg",
     duration: "30m",
