@@ -9,9 +9,9 @@ const hairstyles = [
   { id: 1, name: "Low Cut", price: "₦2,000", image: "/placeholder1.jpg", duration: "30m" },
   { id: 2, name: "Burst Fade", price: "₦2,000", image: "/placeholder2.jpg", duration: "30m" },
   { id: 3, name: "Taper Fade", price: "₦2,000", image: "/placeholder3.jpg", duration: "30m" },
-  { id: 4, name: "Afro", price: "₦2,000", image: "/placeholder4.jpg", duration: "45m" },
+  { id: 4, name: "Afro", price: "₦2,000", image: "/placeholder4.jpg", duration: "35m" },
   { id: 5, name: "Cut & Dye", price: "₦5,000", image: "/placeholder5.jpg", duration: "60m" },
-  { id: 6, name: "Mohawk", price: "₦2,000", image: "/placeholder6.jpg", duration: "30m" },
+  { id: 6, name: "Mohawk", price: "₦2,000", image: "/placeholder6.jpg", duration: "40m" },
 ];
 
 export default function BookNowPage() {

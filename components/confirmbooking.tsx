@@ -13,28 +13,28 @@ const hairstyles = [
   {
     id: 1,
     name: "Low Cut",
-    prices: { shop: 2000, home: 4000 },
+    prices: { shop: 2000, home: 5000 },
     image: "/placeholder1.jpg",
     duration: "30m",
   },
   {
     id: 2,
     name: "Burst Fade",
-    prices: { shop: 2000, home: 4000 },
+    prices: { shop: 2000, home: 5000 },
     image: "/placeholder2.jpg",
     duration: "30m",
   },
   {
     id: 3,
     name: "Taper Fade",
-    prices: { shop: 2000, home: 4000 },
+    prices: { shop: 2000, home: 5000 },
     image: "/placeholder3.jpg",
     duration: "30m",
   },
   {
     id: 4,
     name: "Afro",
-    prices: { shop: 2000, home: 4500 },
+    prices: { shop: 2000, home: 5000 },
     image: "/placeholder4.jpg",
     duration: "45m",
   },
@@ -48,7 +48,7 @@ const hairstyles = [
   {
     id: 6,
     name: "Mohawk",
-    prices: { shop: 2000, home: 4000 },
+    prices: { shop: 2000, home: 5000 },
     image: "/placeholder6.jpg",
     duration: "30m",
   },
@@ -87,12 +87,16 @@ const formatLocalDate = (iso: string) => {
 export default function ConfirmBooking() {
   const router = useRouter();
   const searchParams = useSearchParams();
+
   const styleId = Number(searchParams.get("styleId")) || 1;
   const style = hairstyles.find((s) => s.id === styleId)!;
 
-  const [serviceType, setServiceType] = useState<"shop" | "home">("shop");
-  const price =
-    serviceType === "shop" ? style.prices.shop : style.prices.home;
+  // ✅ NO DEFAULT SELECTION
+  const [serviceType, setServiceType] =
+    useState<"shop" | "home" | null>(null);
+
+  // ✅ PRICE ONLY AFTER SELECTION
+  const price = serviceType ? style.prices[serviceType] : null;
 
   const [clientName, setClientName] = useState("");
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
@@ -119,6 +123,7 @@ export default function ConfirmBooking() {
 
   const validate = () => {
     const e: any = {};
+    if (!serviceType) e.serviceType = true;
     if (!clientName.trim()) e.name = true;
     if (!selectedDate) e.date = true;
     if (!selectedTime) e.time = true;
@@ -136,7 +141,7 @@ Service Type: ${serviceType === "shop" ? "In-Shop" : "Home Service"}
 Name: ${clientName}
 Date: ${formatLocalDate(selectedDate!)}
 Time: ${selectedTime}
-Price: ₦${price.toLocaleString()}
+Price: ₦${price!.toLocaleString()}
 `;
 
     window.open(
@@ -162,6 +167,7 @@ Price: ₦${price.toLocaleString()}
             <label className="text-sm text-gray-300 mb-3 block">
               Service Type
             </label>
+
             <div className="grid grid-cols-2 gap-4">
               {(["shop", "home"] as const).map((type) => (
                 <button
@@ -182,6 +188,12 @@ Price: ₦${price.toLocaleString()}
                 </button>
               ))}
             </div>
+
+            {errors.serviceType && (
+              <p className="text-red-500 text-sm mt-2">
+                Please select a service type
+              </p>
+            )}
           </div>
 
           {/* NAME */}
@@ -194,7 +206,7 @@ Price: ₦${price.toLocaleString()}
             } focus:ring-yellow-500 focus:ring-2`}
           />
 
-          {/* DATE (FIXED SCROLL ISSUE) */}
+          {/* DATE */}
           <div className="flex gap-3 overflow-x-auto pb-3 mb-6">
             {dates.map((d) => (
               <button
@@ -242,13 +254,17 @@ Price: ₦${price.toLocaleString()}
             height={200}
             className="rounded-lg object-cover mb-4 border border-yellow-700/30"
           />
+
           <h3 className="text-xl font-bold">{style.name}</h3>
+
           <p className="text-yellow-400 text-lg font-semibold">
-            ₦{price.toLocaleString()}
+            {price ? `₦${price.toLocaleString()}` : "Select a service type"}
           </p>
+
           <p className="text-sm text-gray-400 capitalize">
-            {serviceType} service
+            {serviceType ? `${serviceType} service` : "No service selected"}
           </p>
+
           <p className="text-sm text-gray-400 mt-2">
             Duration: {style.duration}
           </p>
