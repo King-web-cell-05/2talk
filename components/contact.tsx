@@ -57,7 +57,10 @@ export default function Contact() {
                 <Mail className="text-yellow-500 w-7 h-7" />
                 <div>
                   <p className="font-semibold text-gray-200">Email:</p>
-                  <p className="text-gray-400 text-lg">contact@h2barbershop.com</p>
+                  <p className="text-gray-400 text-lg">
+                    {" "}
+                    houseof2talkentertainment.com
+                  </p>
                 </div>
               </div>
 
@@ -67,7 +70,7 @@ export default function Contact() {
                 <div>
                   <p className="font-semibold text-gray-200">Location:</p>
                   <p className="text-gray-400 text-lg">
-                   No.2 Idera Street, Oworoshoki Lagos, Nigeria
+                    No.2 Idera Street, Oworoshoki Lagos, Nigeria
                   </p>
                 </div>
               </div>
@@ -101,7 +104,9 @@ export default function Contact() {
 
           <div className="space-y-5">
             <div>
-              <label className="block text-gray-300 mb-2 text-lg">Full Name</label>
+              <label className="block text-gray-300 mb-2 text-lg">
+                Full Name
+              </label>
               <input
                 type="text"
                 className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition"
@@ -119,7 +124,9 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-300 mb-2 text-lg">Message</label>
+              <label className="block text-gray-300 mb-2 text-lg">
+                Message
+              </label>
               <textarea
                 rows={5}
                 className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition resize-none"
