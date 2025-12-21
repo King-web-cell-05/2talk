@@ -6,12 +6,48 @@ import { motion } from "framer-motion";
 import Button from "@/components/ui/button";
 
 const hairstyles = [
-  { id: 1, name: "Low Cut", price: "₦2,000", image: "/placeholder1.jpg", duration: "30m" },
-  { id: 2, name: "Burst Fade", price: "₦2,000", image: "/placeholder2.jpg", duration: "30m" },
-  { id: 3, name: "Taper Fade", price: "₦2,000", image: "/placeholder3.jpg", duration: "35m" },
-  { id: 4, name: "Afro", price: "₦2,000", image: "/placeholder4.jpg", duration: "30m" },
-  { id: 5, name: "Cut & Dye", price: "₦5,000", image: "/placeholder5.jpg", duration: "60m" },
-  { id: 6, name: "Side Cut", price: "₦2,000", image: "/placeholder6.jpg", duration: "30m" },
+  {
+    id: 1,
+    name: "Low Cut",
+    price: "₦2,000",
+    image: "/placeholder1.jpg",
+    duration: "30m",
+  },
+  {
+    id: 2,
+    name: "Burst Fade",
+    price: "₦2,000",
+    image: "/placeholder2.jpg",
+    duration: "30m",
+  },
+  {
+    id: 3,
+    name: "Taper Fade",
+    price: "₦2,000",
+    image: "/taper-fade-pic.jpeg",
+    duration: "35m",
+  },
+  {
+    id: 4,
+    name: "Afro",
+    price: "₦2,000",
+    image: "/placeholder4.jpg",
+    duration: "30m",
+  },
+  {
+    id: 5,
+    name: "Cut & Dye",
+    price: "₦5,000",
+    image: "/cut-and-dye-pic.jpeg",
+    duration: "60m",
+  },
+  {
+    id: 6,
+    name: "Side Cut",
+    price: "₦2,000",
+    image: "/side-cut-pic.jpeg",
+    duration: "30m",
+  },
 ];
 
 export default function BookNowPage() {
@@ -34,7 +70,7 @@ export default function BookNowPage() {
       </motion.h1>
 
       {/* Hairstyle Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 place-items-center">
         {hairstyles.map((style) => (
           <motion.div
             key={style.id}
@@ -42,47 +78,52 @@ export default function BookNowPage() {
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.25 }}
             className={`
-              w-full max-w-sm rounded-3xl overflow-hidden cursor-pointer
+              w-full max-w-md rounded-3xl overflow-hidden cursor-pointer
               bg-[#111111]/60 backdrop-blur-xl border 
-              shadow-[0_0_25px_rgba(0,0,0,0.45)] transition-all relative
-              ${selectedStyle === style.id
-                ? "border-yellow-500 shadow-[0_0_20px_rgba(255,200,0,0.5)]"
-                : "border-[#1f1f1f]"
+              shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-all relative
+              ${
+                selectedStyle === style.id
+                  ? "border-yellow-500 shadow-[0_0_25px_rgba(255,200,0,0.55)]"
+                  : "border-[#1f1f1f]"
               }
             `}
           >
             {/* Image */}
-            <div className="w-full h-60 overflow-hidden relative">
+            <div className="w-full h-80 relative overflow-hidden">
               <motion.img
                 src={style.image}
                 alt={style.name}
                 className="w-full h-full object-cover"
-                whileHover={{ scale: 1.15 }}
-                transition={{ duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.6 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#000]/70 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
             </div>
 
             {/* Text */}
-            <div className="p-6 space-y-2">
-              <h3 className="text-2xl font-bold text-yellow-500 tracking-wide">{style.name}</h3>
+            <div className="p-8 space-y-3">
+              <h3 className="text-2xl font-bold text-yellow-500 tracking-wide">
+                {style.name}
+              </h3>
               <p className="text-lg text-gray-300">{style.price}</p>
-              <p className="text-sm text-gray-400">Duration: {style.duration}</p>
+              <p className="text-sm text-gray-400">
+                Duration: {style.duration}
+              </p>
             </div>
 
             {/* Button */}
-            <div className="px-6 pb-6">
+            <div className="px-8 pb-8">
               <Button
                 onClick={() =>
                   (window.location.href = `/confirmbooking?styleId=${style.id}`)
                 }
                 className="
-                  w-full mt-2 py-4 rounded-xl font-semibold text-black 
+                  w-full py-4 rounded-xl font-semibold text-black 
                   bg-gradient-to-r from-yellow-600 to-yellow-500
                   hover:from-yellow-500 hover:to-yellow-400
                   transition-all duration-300
-                  shadow-[0_0_12px_rgba(255,220,90,0.3)]
-                  hover:shadow-[0_0_20px_rgba(255,220,90,0.5)]
+                  shadow-[0_0_14px_rgba(255,220,90,0.35)]
+                  hover:shadow-[0_0_22px_rgba(255,220,90,0.6)]
                 "
               >
                 Book Now
