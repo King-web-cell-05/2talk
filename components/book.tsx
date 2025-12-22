@@ -17,37 +17,45 @@ const hairstyles = [
     id: 2,
     name: "Burst Fade",
     price: "₦2,000",
-    image: "/placeholder2.jpg",
+    image: "/burst-fade.jpg",
     duration: "30m",
   },
-  {
+   {
     id: 3,
-    name: "Taper Fade",
+    name: "Skin Punk",
     price: "₦2,000",
-    image: "/taper-fade-pic.jpeg",
-    duration: "35m",
+    image: "/skin-punk.jpg",
+    duration: "30m",
   },
   {
     id: 4,
-    name: "Afro",
+    name: "Taper Fade",
     price: "₦2,000",
-    image: "/placeholder4.jpg",
-    duration: "30m",
+    image: "/taper-fade.jpg",
+    duration: "35m",
   },
   {
     id: 5,
-    name: "Cut & Dye",
-    price: "₦5,000",
-    image: "/cut-and-dye-pic.jpeg",
-    duration: "60m",
+    name: "Afro",
+    price: "₦2,000",
+    image: "/Afro.jpg",
+    duration: "30m",
   },
   {
     id: 6,
+    name: "Cut & Dye",
+    price: "₦5,000",
+    image: "/cut-and-dye.jpg",
+    duration: "60m",
+  },
+  {
+    id: 7,
     name: "Side Cut",
     price: "₦2,000",
-    image: "/side-cut-pic.jpeg",
+    image: "/side-cut.jpg",
     duration: "30m",
   },
+  
 ];
 
 export default function BookNowPage() {

@@ -11,12 +11,56 @@ import { ArrowLeft } from "lucide-react";
 // DATA
 // ------------------------------------
 const hairstyles = [
-  { id: 1, name: "Low Cut", prices: { shop: 2000, home: 5000 }, image: "/placeholder1.jpg", duration: "30m" },
-  { id: 2, name: "Burst Fade", prices: { shop: 2000, home: 5000 }, image: "/placeholder2.jpg", duration: "30m" },
-  { id: 3, name: "Taper Fade", prices: { shop: 2000, home: 5000 }, image: "/taper-fade-pic.jpeg", duration: "35m" },
-  { id: 4, name: "Afro", prices: { shop: 2000, home: 5000 }, image: "/placeholder4.jpg", duration: "30m" },
-  { id: 5, name: "Cut & Dye", prices: { shop: 5000, home: 8000 }, image: "/cut-and-dye-pic.jpeg", duration: "60m" },
-  { id: 6, name: "Side Cut", prices: { shop: 2000, home: 5000 }, image: "/side-cut-pic.jpeg", duration: "30m" },
+  {
+    id: 1,
+    name: "Low Cut",
+    prices: { shop: 2000, home: 5000 },
+    image: "/placeholder1.jpg",
+    duration: "30m",
+  },
+  {
+    id: 2,
+    name: "Burst Fade",
+    prices: { shop: 2000, home: 5000 },
+    image: "/burst-fade.jpg",
+    duration: "30m",
+  },
+  {
+    id: 3,
+    name: "Skin Punk",
+    prices: { shop: 2000, home: 5000 },
+    image: "/skin-punk.jpg",
+    duration: "30m",
+  },
+  {
+    id: 4,
+    name: "Taper Fade",
+    prices: { shop: 2000, home: 5000 },
+    image: "/taper-fade.jpg",
+    duration: "35m",
+  },
+  {
+    id: 5,
+    name: "Afro",
+    prices: { shop: 2000, home: 5000 },
+    image: "/Afro.jpg",
+    duration: "30m",
+  },
+  {
+    id: 6,
+    name: "Cut & Dye",
+    prices: { shop: 5000, home: 8000 },
+    image: "/cut-and-dye.jpg",
+    duration: "60m",
+  },
+  {
+    id: 7,
+    name: "Side Cut",
+    prices: { shop: 2000, home: 5000 },
+    image: "/side-cut.jpg",
+    duration: "30m",
+  },
+  
 ];
 
 // ------------------------------------
@@ -116,18 +160,16 @@ Price: ₦${price!.toLocaleString()}
   return (
     <section className="min-h-screen bg-[#0b0b0b] text-white py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
-
         {/* BACK BUTTON */}
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6"
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6 hover:cursor-pointer"
         >
           <ArrowLeft size={18} />
           Back to booking
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-
           {/* FORM */}
           <div className="lg:col-span-2 bg-[#121212] p-10 rounded-2xl border border-yellow-700/30">
             <h1 className="text-4xl font-extrabold mb-10 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600">
@@ -230,7 +272,7 @@ Price: ₦${price!.toLocaleString()}
             <h3 className="text-xl font-bold">{style.name}</h3>
 
             <p className="text-yellow-400 text-lg font-semibold">
-              {price ? `₦${price.toLocaleString()}` : "Select a service type"}
+              {price ? `₦${price.toLocaleString()}` : "Service type price"}
             </p>
 
             <p className="text-sm text-gray-400 capitalize">
