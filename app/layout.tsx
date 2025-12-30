@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Orbitron, Inter, Rajdhani } from "next/font/google";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
