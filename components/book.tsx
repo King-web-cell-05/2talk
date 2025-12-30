@@ -129,9 +129,7 @@ export default function BookNowPage() {
                   w-full py-4 rounded-xl font-semibold text-black 
                   bg-gradient-to-r from-yellow-600 to-yellow-500
                   hover:from-yellow-500 hover:to-yellow-400
-                  transition-all duration-300
-                  shadow-[0_0_14px_rgba(255,220,90,0.35)]
-                  hover:shadow-[0_0_22px_rgba(255,220,90,0.6)]
+                  transition-all ]
                 "
               >
                 Book Now

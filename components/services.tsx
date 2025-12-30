@@ -7,7 +7,7 @@ const services = [
   {
     title: "Haircut & Styling",
     description: "Precision cuts and modern styling to match your personality.",
-    image: "/haircut-img.jpg",
+    image: "/haircut-and-styling.jpg",
   },
   {
     title: "Beard Grooming",

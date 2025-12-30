@@ -131,7 +131,7 @@ Price: ₦${price!.toLocaleString()}
       <div className="max-w-6xl mx-auto">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6"
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6 hover:cursor-pointer"
         >
           <ArrowLeft size={18} />
           Back to booking
