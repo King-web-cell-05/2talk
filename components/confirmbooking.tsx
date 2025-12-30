@@ -65,8 +65,8 @@ export default function ConfirmBooking() {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [dates, setDates] = useState<{ iso: string; display: string }[]>([]);
   const [errors, setErrors] = useState<any>({});
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
-  // ✅ FIXED DATE GENERATION (LOCAL TIME SAFE)
   useEffect(() => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
@@ -98,7 +98,10 @@ export default function ConfirmBooking() {
     if (!clientName.trim()) e.name = true;
     if (!selectedDate) e.date = true;
     if (!selectedTime) e.time = true;
+
     setErrors(e);
+    setShowErrorMessage(true);
+
     return Object.keys(e).length === 0;
   };
 
@@ -193,7 +196,7 @@ Price: ₦${price!.toLocaleString()}
 
             {/* TIME */}
             <select
-              className="w-full p-4 mb-8 rounded-xl bg-[#0f0f0f] border border-gray-700"
+              className="w-full p-4 mb-6 rounded-xl bg-[#0f0f0f] border border-gray-700"
               value={selectedTime || ""}
               onChange={(e) => setSelectedTime(e.target.value)}
             >
@@ -202,6 +205,13 @@ Price: ₦${price!.toLocaleString()}
                 <option key={t}>{t}</option>
               ))}
             </select>
+
+            {/* ERROR MESSAGE */}
+            {showErrorMessage && Object.keys(errors).length > 0 && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500 text-red-400 text-sm">
+                Please complete all required fields before confirming your booking.
+              </div>
+            )}
 
             <Button
               onClick={handleConfirm}
