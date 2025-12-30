@@ -12,20 +12,21 @@ export default function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="
-          text-center text-4xl md:text-6xl font-extrabold tracking-wider
-          text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-500
+          text-center text-4xl md:text-6xl font-extrabold tracking-wider 
+          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
         "
       >
-        Contact Us
+        Get in Touch
       </motion.h1>
 
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="text-center text-gray-300 text-lg md:text-xl mt-4 max-w-2xl mx-auto"
+        className="text-center text-gray-300 text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed"
       >
-        We're here to help you look your best. Reach out to us anytime.
+        Premium grooming deserves premium service. Contact us to book appointments,
+        ask questions, or walk in for a fresh cut.
       </motion.p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-20">
@@ -36,29 +37,29 @@ export default function Contact() {
           transition={{ duration: 0.9 }}
           className="space-y-10"
         >
-          {/* Card */}
-          <div className="bg-[#111]/70 border border-[#222] rounded-3xl p-10 shadow-xl backdrop-blur-md">
-            <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-6 tracking-wide">
-              Get in Touch
+          <div className="bg-[#111]/80 border border-[#222] rounded-3xl p-10 shadow-2xl backdrop-blur-md">
+            <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-8 tracking-wide">
+              Barbershop Details
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-7">
               {/* Phone */}
               <div className=" gap-4">
-                <Phone className="text-yellow-500 w-7 h-7" />
+                <Phone className="text-yellow-500 w-7 h-7 mb-2" />
                 <div>
-                  <p className="font-semibold text-gray-200">Phone:</p>
-                  <p className="text-gray-400 text-lg">+234 808 286 8332</p>
+                  <p className="font-semibold text-gray-200">Call Us</p>
+                  <p className="text-gray-400 text-lg">
+                    +234 808 286 8332
+                  </p>
                 </div>
               </div>
 
               {/* Email */}
               <div className=" gap-4">
-                <Mail className="text-yellow-500 w-7 h-7 mt-5" />
+                <Mail className="text-yellow-500 w-7 h-7 mb-2" />
                 <div>
-                  <p className="font-semibold text-gray-200">Email:</p>
+                  <p className="font-semibold text-gray-200">Email</p>
                   <p className="text-gray-400 text-lg">
-                    {" "}
                     houseof2talkentertainment.com
                   </p>
                 </div>
@@ -66,22 +67,26 @@ export default function Contact() {
 
               {/* Location */}
               <div className=" gap-4">
-                <MapPin className="text-yellow-500 w-7 h-7" />
+                <MapPin className="text-yellow-500 w-7 h-7 mb-2" />
                 <div>
-                  <p className="font-semibold text-gray-200">Location:</p>
+                  <p className="font-semibold text-gray-200">Visit the Shop</p>
                   <p className="text-gray-400 text-lg">
-                    No.2 Idera Street, Oworoshoki Lagos, Nigeria
+                    No. 2 Idera Street, Oworoshoki, Lagos, Nigeria
                   </p>
                 </div>
               </div>
 
               {/* Business Hours */}
               <div className=" gap-4">
-                <Clock className="text-yellow-500 w-7 h-7" />
+                <Clock className="text-yellow-500 w-7 h-7 mb-2" />
                 <div>
-                  <p className="font-semibold text-gray-200">Opening Hours:</p>
-                  <p className="text-gray-400 text-lg">Open 7 Days a Week</p>
-                  <p className="text-gray-400 text-lg">9:00 AM – 9:00 PM</p>
+                  <p className="font-semibold text-gray-200">Working Hours</p>
+                  <p className="text-gray-400 text-lg">
+                    Monday – Sunday
+                  </p>
+                  <p className="text-gray-400 text-lg">
+                    9:00 AM – 9:00 PM
+                  </p>
                 </div>
               </div>
             </div>
@@ -94,28 +99,30 @@ export default function Contact() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9 }}
           className="
-            bg-[#111]/70 border border-[#222] rounded-3xl 
-            p-10 shadow-xl backdrop-blur-md space-y-8
+            bg-[#111]/80 border border-[#222] rounded-3xl 
+            p-10 shadow-2xl backdrop-blur-md space-y-8
           "
         >
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-600 tracking-wide">
-            Send Us a Message
+            Send a Message
           </h2>
 
-          <div className="space-y-5">
+          <div className="space-y-6">
             <div>
-              <label className="block text-gray-300 mb-2 text-lg">
+              <label className="block text-gray-300 mb-2 text-base">
                 Full Name
               </label>
               <input
                 type="text"
                 className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition"
-                placeholder="Enter your name"
+                placeholder="Your full name"
               />
             </div>
 
             <div>
-              <label className="block text-gray-300 mb-2 text-lg">Email</label>
+              <label className="block text-gray-300 mb-2 text-base">
+                Email Address
+              </label>
               <input
                 type="email"
                 className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition"
@@ -124,23 +131,23 @@ export default function Contact() {
             </div>
 
             <div>
-              <label className="block text-gray-300 mb-2 text-lg">
+              <label className="block text-gray-300 mb-2 text-base">
                 Message
               </label>
               <textarea
                 rows={5}
                 className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition resize-none"
-                placeholder="Type your message here..."
-              ></textarea>
+                placeholder="Tell us how we can help you..."
+              />
             </div>
 
             <button
               type="submit"
               className="
-                w-full mt-4 py-4 rounded-xl font-semibold text-black
+                w-full mt-4 py-4 rounded-xl font-semibold text-black tracking-wide
                 bg-gradient-to-r from-yellow-700 to-yellow-600
                 hover:from-yellow-600 hover:to-yellow-500
-                transition-all 
+                transition-all
               "
             >
               Send Message
