@@ -44,7 +44,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               {/* Phone */}
-              <div className="flex items-start gap-4">
+              <div className=" gap-4">
                 <Phone className="text-yellow-500 w-7 h-7" />
                 <div>
                   <p className="font-semibold text-gray-200">Phone:</p>
@@ -53,8 +53,8 @@ export default function Contact() {
               </div>
 
               {/* Email */}
-              <div className="flex items-start gap-4">
-                <Mail className="text-yellow-500 w-7 h-7" />
+              <div className=" gap-4">
+                <Mail className="text-yellow-500 w-7 h-7 mt-5" />
                 <div>
                   <p className="font-semibold text-gray-200">Email:</p>
                   <p className="text-gray-400 text-lg">
@@ -65,7 +65,7 @@ export default function Contact() {
               </div>
 
               {/* Location */}
-              <div className="flex items-start gap-4">
+              <div className=" gap-4">
                 <MapPin className="text-yellow-500 w-7 h-7" />
                 <div>
                   <p className="font-semibold text-gray-200">Location:</p>
@@ -76,7 +76,7 @@ export default function Contact() {
               </div>
 
               {/* Business Hours */}
-              <div className="flex items-start gap-4">
+              <div className=" gap-4">
                 <Clock className="text-yellow-500 w-7 h-7" />
                 <div>
                   <p className="font-semibold text-gray-200">Opening Hours:</p>
@@ -140,8 +140,7 @@ export default function Contact() {
                 w-full mt-4 py-4 rounded-xl font-semibold text-black
                 bg-gradient-to-r from-yellow-700 to-yellow-600
                 hover:from-yellow-600 hover:to-yellow-500
-                transition-all duration-300 shadow-[0_0_15px_rgba(255,220,90,0.3)]
-                hover:shadow-[0_0_25px_rgba(255,220,90,0.5)]
+                transition-all 
               "
             >
               Send Message
