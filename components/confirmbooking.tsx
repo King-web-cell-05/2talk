@@ -11,56 +11,13 @@ import { ArrowLeft } from "lucide-react";
 // DATA
 // ------------------------------------
 const hairstyles = [
-  {
-    id: 1,
-    name: "Low Cut",
-    prices: { shop: 2000, home: 5000 },
-    image: "/placeholder1.jpg",
-    duration: "30m",
-  },
-  {
-    id: 2,
-    name: "Burst Fade",
-    prices: { shop: 2000, home: 5000 },
-    image: "/burst-fade.jpg",
-    duration: "30m",
-  },
-  {
-    id: 3,
-    name: "Skin Punk",
-    prices: { shop: 2000, home: 5000 },
-    image: "/skin-punk.jpg",
-    duration: "30m",
-  },
-  {
-    id: 4,
-    name: "Taper Fade",
-    prices: { shop: 2000, home: 5000 },
-    image: "/taper-fade.jpg",
-    duration: "35m",
-  },
-  {
-    id: 5,
-    name: "Afro",
-    prices: { shop: 2000, home: 5000 },
-    image: "/Afro.jpg",
-    duration: "30m",
-  },
-  {
-    id: 6,
-    name: "Cut & Dye",
-    prices: { shop: 5000, home: 8000 },
-    image: "/cut-and-dye.jpg",
-    duration: "60m",
-  },
-  {
-    id: 7,
-    name: "Side Cut",
-    prices: { shop: 2000, home: 5000 },
-    image: "/side-cut.jpg",
-    duration: "30m",
-  },
-  
+  { id: 1, name: "Low Cut", prices: { shop: 2000, home: 5000 }, image: "/placeholder1.jpg", duration: "30m" },
+  { id: 2, name: "Burst Fade", prices: { shop: 2000, home: 5000 }, image: "/burst-fade.jpg", duration: "30m" },
+  { id: 3, name: "Skin Punk", prices: { shop: 2000, home: 5000 }, image: "/skin-punk.jpg", duration: "30m" },
+  { id: 4, name: "Taper Fade", prices: { shop: 2000, home: 5000 }, image: "/taper-fade.jpg", duration: "35m" },
+  { id: 5, name: "Afro", prices: { shop: 2000, home: 5000 }, image: "/Afro.jpg", duration: "30m" },
+  { id: 6, name: "Cut & Dye", prices: { shop: 5000, home: 8000 }, image: "/cut-and-dye.jpg", duration: "60m" },
+  { id: 7, name: "Side Cut", prices: { shop: 2000, home: 5000 }, image: "/side-cut.jpg", duration: "30m" },
 ];
 
 // ------------------------------------
@@ -109,13 +66,21 @@ export default function ConfirmBooking() {
   const [dates, setDates] = useState<{ iso: string; display: string }[]>([]);
   const [errors, setErrors] = useState<any>({});
 
+  // ✅ FIXED DATE GENERATION (LOCAL TIME SAFE)
   useEffect(() => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
     const list = Array.from({ length: 14 }).map((_, i) => {
       const d = new Date(today);
       d.setDate(today.getDate() + i);
+
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+
       return {
-        iso: d.toISOString().split("T")[0],
+        iso: `${yyyy}-${mm}-${dd}`,
         display: d.toLocaleDateString("en-GB", {
           weekday: "short",
           month: "short",
@@ -123,6 +88,7 @@ export default function ConfirmBooking() {
         }),
       };
     });
+
     setDates(list);
   }, []);
 
@@ -160,10 +126,9 @@ Price: ₦${price!.toLocaleString()}
   return (
     <section className="min-h-screen bg-[#0b0b0b] text-white py-16 px-6 md:px-20">
       <div className="max-w-6xl mx-auto">
-        {/* BACK BUTTON */}
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6 hover:cursor-pointer"
+          className="flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-400 transition mb-6"
         >
           <ArrowLeft size={18} />
           Back to booking
@@ -178,10 +143,7 @@ Price: ₦${price!.toLocaleString()}
 
             {/* SERVICE TYPE */}
             <div className="mb-8">
-              <label className="text-sm text-gray-300 mb-3 block">
-                Service Type
-              </label>
-
+              <label className="text-sm text-gray-300 mb-3 block">Service Type</label>
               <div className="grid grid-cols-2 gap-4">
                 {(["shop", "home"] as const).map((type) => (
                   <button
@@ -202,12 +164,6 @@ Price: ₦${price!.toLocaleString()}
                   </button>
                 ))}
               </div>
-
-              {errors.serviceType && (
-                <p className="text-red-500 text-sm mt-2">
-                  Please select a service type
-                </p>
-              )}
             </div>
 
             {/* NAME */}
@@ -215,9 +171,7 @@ Price: ₦${price!.toLocaleString()}
               placeholder="Full name"
               value={clientName}
               onChange={(e) => setClientName(e.target.value)}
-              className={`w-full p-4 mb-6 rounded-xl bg-[#0f0f0f] border ${
-                errors.name ? "border-red-500" : "border-gray-700"
-              } focus:ring-yellow-500 focus:ring-2`}
+              className="w-full p-4 mb-6 rounded-xl bg-[#0f0f0f] border border-gray-700"
             />
 
             {/* DATE */}
@@ -226,7 +180,7 @@ Price: ₦${price!.toLocaleString()}
                 <button
                   key={d.iso}
                   onClick={() => setSelectedDate(d.iso)}
-                  className={`min-w-[110px] flex-shrink-0 p-3 rounded-xl border ${
+                  className={`min-w-[110px] p-3 rounded-xl border ${
                     selectedDate === d.iso
                       ? "border-yellow-500 bg-yellow-500/10"
                       : "border-gray-700"
@@ -239,9 +193,7 @@ Price: ₦${price!.toLocaleString()}
 
             {/* TIME */}
             <select
-              className={`w-full p-4 mb-8 rounded-xl bg-[#0f0f0f] border ${
-                errors.time ? "border-red-500" : "border-gray-700"
-              }`}
+              className="w-full p-4 mb-8 rounded-xl bg-[#0f0f0f] border border-gray-700"
               value={selectedTime || ""}
               onChange={(e) => setSelectedTime(e.target.value)}
             >
@@ -261,27 +213,16 @@ Price: ₦${price!.toLocaleString()}
 
           {/* SUMMARY */}
           <aside className="bg-[#111] p-6 rounded-2xl border border-yellow-700/20">
-            <Image
-              src={style.image}
-              alt={style.name}
-              width={320}
-              height={220}
-              className="rounded-lg object-cover mb-4 border border-yellow-700/30"
-            />
-
+            <Image src={style.image} alt={style.name} width={320} height={220} className="rounded-lg mb-4" />
             <h3 className="text-xl font-bold">{style.name}</h3>
-
-            <p className="text-yellow-400 text-lg font-semibold">
+            <p className="text-yellow-400 font-semibold">
               {price ? `₦${price.toLocaleString()}` : "Service type price"}
             </p>
-
-            <p className="text-sm text-gray-400 capitalize">
-              {serviceType ? `${serviceType} service` : "No service selected"}
-            </p>
-
-            <p className="text-sm text-gray-400 mt-2">
-              Duration: {style.duration}
-            </p>
+            <p className="text-sm text-gray-400">Duration: {style.duration}</p>
+            <hr className="my-4 border-gray-700" />
+            <p className="text-sm">Name: {clientName || "Not provided"}</p>
+            <p className="text-sm">Date: {selectedDate ? formatLocalDate(selectedDate) : "Not selected"}</p>
+            <p className="text-sm">Time: {selectedTime || "Not selected"}</p>
           </aside>
         </div>
       </div>
