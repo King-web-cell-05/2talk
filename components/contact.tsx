@@ -1,9 +1,38 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!name || !message) return;
+
+    const phoneNumber = "2349065644691";
+
+    const whatsappMessage = `
+Hello House of 2Talk Entertainment 
+
+Name: ${name}
+Email: ${email || "Not provided"}
+
+Message:
+${message}
+    `.trim();
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+
+    window.open(whatsappURL, "_blank");
+  };
+
   return (
     <section className="w-full min-h-screen bg-[#0D0D0D] text-white py-24 px-6 md:px-20">
       {/* Heading */}
@@ -25,12 +54,12 @@ export default function Contact() {
         transition={{ duration: 1 }}
         className="text-center text-gray-300 text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed"
       >
-        Premium grooming deserves premium service. Contact us to book appointments,
-        ask questions, or walk in for a fresh cut.
+        Premium grooming deserves premium service. Contact us to book
+        appointments, ask questions, or walk in for a fresh cut.
       </motion.p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-20">
-        {/* Left Side: Contact Information */}
+        {/* Left Side */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -43,58 +72,41 @@ export default function Contact() {
             </h2>
 
             <div className="space-y-7">
-              {/* Phone */}
-              <div className=" gap-4">
+              <div>
                 <Phone className="text-yellow-500 w-7 h-7 mb-2" />
-                <div>
-                  <p className="font-semibold text-gray-200">Call Us</p>
-                  <p className="text-gray-400 text-lg">
-                    +234 808 286 8332
-                  </p>
-                </div>
+                <p className="font-semibold text-gray-200">Call Us</p>
+                <p className="text-gray-400 text-lg">+234 808 286 8332</p>
               </div>
 
-              {/* Email */}
-              <div className=" gap-4">
+              <div>
                 <Mail className="text-yellow-500 w-7 h-7 mb-2" />
-                <div>
-                  <p className="font-semibold text-gray-200">Email</p>
-                  <p className="text-gray-400 text-lg">
-                    houseof2talkentertainment.com
-                  </p>
-                </div>
+                <p className="font-semibold text-gray-200">Email</p>
+                <p className="text-gray-400 text-lg">
+                  houseof2talkentertainment.com
+                </p>
               </div>
 
-              {/* Location */}
-              <div className=" gap-4">
+              <div>
                 <MapPin className="text-yellow-500 w-7 h-7 mb-2" />
-                <div>
-                  <p className="font-semibold text-gray-200">Visit the Shop</p>
-                  <p className="text-gray-400 text-lg">
-                    No. 2 Idera Street, Oworoshoki, Lagos, Nigeria
-                  </p>
-                </div>
+                <p className="font-semibold text-gray-200">Visit the Shop</p>
+                <p className="text-gray-400 text-lg">
+                  No. 2 Idera Street, Oworoshoki, Lagos, Nigeria
+                </p>
               </div>
 
-              {/* Business Hours */}
-              <div className=" gap-4">
+              <div>
                 <Clock className="text-yellow-500 w-7 h-7 mb-2" />
-                <div>
-                  <p className="font-semibold text-gray-200">Working Hours</p>
-                  <p className="text-gray-400 text-lg">
-                    Monday – Sunday
-                  </p>
-                  <p className="text-gray-400 text-lg">
-                    9:00 AM – 9:00 PM
-                  </p>
-                </div>
+                <p className="font-semibold text-gray-200">Working Hours</p>
+                <p className="text-gray-400 text-lg">Monday – Sunday</p>
+                <p className="text-gray-400 text-lg">9:00 AM – 9:00 PM</p>
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Right Side: Contact Form */}
+        {/* Right Side */}
         <motion.form
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9 }}
@@ -109,34 +121,36 @@ export default function Contact() {
 
           <div className="space-y-6">
             <div>
-              <label className="block text-gray-300 mb-2 text-base">
-                Full Name
-              </label>
+              <label className="block text-gray-300 mb-2">Full Name</label>
               <input
                 type="text"
-                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none"
                 placeholder="Your full name"
               />
             </div>
 
             <div>
-              <label className="block text-gray-300 mb-2 text-base">
-                Email Address
-              </label>
+              <label className="block text-gray-300 mb-2">Email Address</label>
               <input
                 type="email"
-                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none"
                 placeholder="you@example.com"
               />
             </div>
 
             <div>
-              <label className="block text-gray-300 mb-2 text-base">
-                Message
-              </label>
+              <label className="block text-gray-300 mb-2">Message</label>
               <textarea
                 rows={5}
-                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none transition resize-none"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+                className="w-full px-5 py-3 rounded-xl bg-[#1a1a1a] border border-[#333] text-white focus:border-yellow-500 outline-none resize-none"
                 placeholder="Tell us how we can help you..."
               />
             </div>
@@ -148,9 +162,11 @@ export default function Contact() {
                 bg-gradient-to-r from-yellow-700 to-yellow-600
                 hover:from-yellow-600 hover:to-yellow-500
                 transition-all
+                flex items-center justify-center gap-2
               "
             >
               Send Message
+              <Send className="w-5 h-5" />
             </button>
           </div>
         </motion.form>

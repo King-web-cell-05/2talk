@@ -31,7 +31,7 @@ export default function ScrollToTop() {
           animate={{
             opacity: 1,
             scale: 1,
-            y: [0, -6, 0], // gentle bounce
+            y: [0, -6, 0], 
           }}
           exit={{ opacity: 0, scale: 0.85, y: 20 }}
           transition={{
