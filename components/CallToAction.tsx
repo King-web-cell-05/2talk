@@ -29,7 +29,7 @@ export default function CallToActionSection() {
 
         <div className="flex justify-center mt-10">
           <Link href="/book">
-            <Button className="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 shadow-md hover:shadow-[#D4A65A]/30">
+            <Button className="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 ">
               Book Your Appointment
             </Button>
           </Link>
