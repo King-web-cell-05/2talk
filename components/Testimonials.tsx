@@ -13,7 +13,7 @@ const testimonials = [
   },
   {
     name: "Mr Michael",
-    role: "Dancer",
+    role: "Entertainer",
     text: "The service is top-notch. Professional, clean, and stylish!",
   },
   {
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     name: "Mr Tunde",
-    role: "Marketing Lead",
+    role: "Content Creator",
     text: "The team exceeded all expectations. A true professional experience.",
   },
 ];
