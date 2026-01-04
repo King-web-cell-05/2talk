@@ -11,13 +11,55 @@ import { ArrowLeft } from "lucide-react";
 // DATA
 // ------------------------------------
 const hairstyles = [
-  { id: 1, name: "Low Cut", prices: { shop: 2000, home: 5000 }, image: "/placeholder1.jpg", duration: "30m" },
-  { id: 2, name: "Burst Fade", prices: { shop: 2000, home: 5000 }, image: "/burst-fade.jpg", duration: "30m" },
-  { id: 3, name: "Skin Punk", prices: { shop: 2000, home: 5000 }, image: "/skin-punk.jpg", duration: "30m" },
-  { id: 4, name: "Taper Fade", prices: { shop: 2000, home: 5000 }, image: "/taper-fade.jpg", duration: "35m" },
-  { id: 5, name: "Afro", prices: { shop: 2000, home: 5000 }, image: "/Afro.jpg", duration: "30m" },
-  { id: 6, name: "Cut & Dye", prices: { shop: 5000, home: 8000 }, image: "/cut-and-dye.jpg", duration: "60m" },
-  { id: 7, name: "Side Cut", prices: { shop: 2000, home: 5000 }, image: "/side-cut.jpg", duration: "30m" },
+  {
+    id: 1,
+    name: "Low Cut",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/placeholder1.jpg",
+    duration: "30m",
+  },
+  {
+    id: 2,
+    name: "Burst Fade",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/burst-fade.jpg",
+    duration: "30m",
+  },
+  {
+    id: 3,
+    name: "Skin Punk",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/skin-punk.jpg",
+    duration: "30m",
+  },
+  {
+    id: 4,
+    name: "Taper Fade",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/taper-fade.jpg",
+    duration: "35m",
+  },
+  {
+    id: 5,
+    name: "Afro",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/Afro.jpg",
+    duration: "30m",
+  },
+  {
+    id: 6,
+    name: "Cut & Dye",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/cut-and-dye.jpg",
+    duration: "60m",
+  },
+  {
+    id: 7,
+    name: "Side Cut",
+    prices: { shop: 3000, home: "Negotiable" },
+    image: "/side-cut.jpg",
+    duration: "30m",
+  },
 ];
 
 // ------------------------------------
@@ -115,7 +157,9 @@ Service Type: ${serviceType === "shop" ? "In-Shop" : "Home Service"}
 Name: ${clientName}
 Date: ${formatLocalDate(selectedDate!)}
 Time: ${selectedTime}
-Price: ₦${price!.toLocaleString()}
+Price: ${
+      serviceType === "shop" ? `₦${(price as number).toLocaleString()}` : price
+    }
 `;
 
     window.open(
@@ -146,7 +190,9 @@ Price: ₦${price!.toLocaleString()}
 
             {/* SERVICE TYPE */}
             <div className="mb-8">
-              <label className="text-sm text-gray-300 mb-3 block">Service Type</label>
+              <label className="text-sm text-gray-300 mb-3 block">
+                Service Type
+              </label>
               <div className="grid grid-cols-2 gap-4">
                 {(["shop", "home"] as const).map((type) => (
                   <button
@@ -162,7 +208,9 @@ Price: ₦${price!.toLocaleString()}
                       {type === "shop" ? "In-Shop Service" : "Home Service"}
                     </div>
                     <div className="text-lg font-bold">
-                      ₦{style.prices[type].toLocaleString()}
+                      {type === "shop"
+                        ? `₦${(style.prices[type] as number).toLocaleString()}`
+                        : style.prices[type]}
                     </div>
                   </button>
                 ))}
@@ -209,7 +257,8 @@ Price: ₦${price!.toLocaleString()}
             {/* ERROR MESSAGE */}
             {showErrorMessage && Object.keys(errors).length > 0 && (
               <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500 text-red-400 text-sm">
-                Please complete all required fields before confirming your booking.
+                Please complete all required fields before confirming your
+                booking.
               </div>
             )}
 
@@ -223,15 +272,40 @@ Price: ₦${price!.toLocaleString()}
 
           {/* SUMMARY */}
           <aside className="bg-[#111] p-6 rounded-2xl border border-yellow-700/20">
-            <Image src={style.image} alt={style.name} width={320} height={220} className="rounded-lg mb-4" />
+            <Image
+              src={style.image}
+              alt={style.name}
+              width={320}
+              height={220}
+              className="rounded-lg mb-4"
+            />
             <h3 className="text-xl font-bold">{style.name}</h3>
-            <p className="text-yellow-400 font-semibold">
-              {price ? `₦${price.toLocaleString()}` : "Service type price"}
+
+            {/* SERVICE TYPE NAME */}
+            <p className="text-gray-400 text-sm mb-1">
+              {serviceType === "shop"
+                ? "In-Shop Service"
+                : serviceType === "home"
+                ? "Home Service"
+                : "Select service type"}
             </p>
+
+            {/* SERVICE PRICE */}
+            <p className="text-yellow-400 font-semibold mb-2">
+              {serviceType === "shop"
+                ? `₦${(price as number)?.toLocaleString()}`
+                : serviceType === "home"
+                ? price
+                : ""}
+            </p>
+
             <p className="text-sm text-gray-400">Duration: {style.duration}</p>
             <hr className="my-4 border-gray-700" />
             <p className="text-sm">Name: {clientName || "Not provided"}</p>
-            <p className="text-sm">Date: {selectedDate ? formatLocalDate(selectedDate) : "Not selected"}</p>
+            <p className="text-sm">
+              Date:{" "}
+              {selectedDate ? formatLocalDate(selectedDate) : "Not selected"}
+            </p>
             <p className="text-sm">Time: {selectedTime || "Not selected"}</p>
           </aside>
         </div>

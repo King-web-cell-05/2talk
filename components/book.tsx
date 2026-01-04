@@ -9,49 +9,42 @@ const hairstyles = [
   {
     id: 1,
     name: "Low Cut",
-    price: "₦2,000",
     image: "/placeholder1.jpg",
     duration: "30m",
   },
   {
     id: 2,
     name: "Burst Fade",
-    price: "₦2,000",
     image: "/burst-fade.jpg",
     duration: "30m",
   },
    {
     id: 3,
     name: "Skin Punk",
-    price: "₦2,000",
     image: "/skin-punk.jpg",
     duration: "30m",
   },
   {
     id: 4,
     name: "Taper Fade",
-    price: "₦2,000",
     image: "/taper-fade.jpg",
     duration: "35m",
   },
   {
     id: 5,
     name: "Afro",
-    price: "₦2,000",
     image: "/Afro.jpg",
     duration: "30m",
   },
   {
     id: 6,
     name: "Cut & Dye",
-    price: "₦5,000",
     image: "/cut-and-dye.jpg",
     duration: "60m",
   },
   {
     id: 7,
     name: "Side Cut",
-    price: "₦2,000",
     image: "/side-cut.jpg",
     duration: "30m",
   },
@@ -113,7 +106,6 @@ export default function BookNowPage() {
               <h3 className="text-2xl font-bold text-yellow-500 tracking-wide">
                 {style.name}
               </h3>
-              <p className="text-lg text-gray-300">{style.price}</p>
               <p className="text-sm text-gray-400">
                 Duration: {style.duration}
               </p>
