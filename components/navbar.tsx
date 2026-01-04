@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
@@ -28,6 +27,12 @@ export default function Nav() {
     { name: "About", href: "/about", icon: <Info size={22} /> },
     { name: "Book now", href: "/book", icon: <Book size={22} /> },
     { name: "Contact", href: "/contact", icon: <Phone size={22} /> },
+  ];
+
+  const socialLinks = [
+    { href: "https://www.instagram.com/ho2_entertainment?igsh=MTVlNjVoZnloY29jbA==", icon: <Instagram size={24} /> },
+    { href: "https://facebook.com", icon: <Facebook size={24} /> },
+    { href: "https://wa.me/2348082868332", icon: <FaWhatsapp size={24} /> },
   ];
 
   return (
@@ -49,20 +54,15 @@ export default function Nav() {
         <div className="hidden md:flex items-center gap-10 font-[var(--font-rajdhani)] text-lg">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
-
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`
-                  relative transition-all duration-300 
-                  ${isActive ? "text-yellow-600" : "text-white"}
-                  hover:text-gray-400
-                `}
+                className={`relative transition-all duration-300 ${
+                  isActive ? "text-yellow-600" : "text-white"
+                } hover:text-gray-400`}
               >
                 {link.name}
-
-                {/* GOLD UNDERLINE WHEN ACTIVE */}
                 {isActive && (
                   <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-yellow-600 rounded-full"></span>
                 )}
@@ -86,11 +86,10 @@ export default function Nav() {
           {/* GOLD TECH GRID */}
           <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(90deg,#D4A65A40_1px,transparent_1px),linear-gradient(#D4A65A40_1px,transparent_1px)] bg-[size:38px_38px] pointer-events-none"></div>
 
-          {/* MOBILE LINKS */}
+          {/* MOBILE NAV LINKS */}
           <div className="relative space-y-5">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
-
               return (
                 <Link
                   key={link.name}
@@ -98,7 +97,6 @@ export default function Nav() {
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-4 text-lg tracking-wide group"
                 >
-                  {/* ICON */}
                   <span
                     className={`transition-colors ${
                       isActive ? "text-yellow-600" : "text-white"
@@ -106,8 +104,6 @@ export default function Nav() {
                   >
                     {link.icon}
                   </span>
-
-                  {/* TEXT + UNDERLINE */}
                   <span className="relative inline-block">
                     <span
                       className={`transition-colors ${
@@ -116,7 +112,6 @@ export default function Nav() {
                     >
                       {link.name}
                     </span>
-
                     {isActive && (
                       <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-yellow-600 rounded-full"></span>
                     )}
@@ -126,39 +121,24 @@ export default function Nav() {
             })}
           </div>
 
+          {/* SOCIAL ICONS */}
+          <div className="flex items-center gap-6 relative mt-4">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+
           {/* DIVIDER */}
-          <div className="w-full h-[1px] bg-[#2a2a2a]"></div>
-
-       {/* SOCIAL ICONS */}
-<div className="flex items-center gap-6 relative">
-  <a
-    href="https://instagram.com"   
-    target="_blank"
-    rel="noopener noreferrer"
-    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
-  >
-    <Instagram size={24} />
-  </a>
-
-  <a
-    href="https://facebook.com"   
-    target="_blank"
-    rel="noopener noreferrer"
-    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
-  >
-    <Facebook size={24} />
-  </a>
-
-  <a
-    href="https://wa.me/2348082868332"   
-    target="_blank"
-    rel="noopener noreferrer"
-    className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
-  >
-    <FaWhatsapp size={24} />
-  </a>
-</div>
-
+          <div className="w-full h-[1px] bg-[#2a2a2a] mt-4"></div>
 
           {/* COPYRIGHT */}
           <p className="text-xs text-gray-500 pt-4">

@@ -116,7 +116,7 @@ export default function Footer() {
           <div className="flex items-center gap-5">
             {/* Instagram */}
             <a
-              href="https://instagram.com/yourpage"
+              href="https://www.instagram.com/ho2_entertainment?igsh=MTVlNjVoZnloY29jbA=="
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
