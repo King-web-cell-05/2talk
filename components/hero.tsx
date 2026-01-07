@@ -15,10 +15,10 @@ export default function HeroSection() {
       <div className="relative w-full h-[90vh] mt-20">
         {" "}
         <Image
-          src="/2talk-bg-img.jpeg"
+          src="/Background-img.jpg"
           alt="Barber Hero"
           fill={true}
-          className="object-cover opacity-30"
+          className="object-cover opacity-40"
           priority
         />
         {/* Overlay Content */}
