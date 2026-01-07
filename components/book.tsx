@@ -9,7 +9,7 @@ const hairstyles = [
   {
     id: 1,
     name: "Low Cut",
-    image: "/placeholder1.jpg",
+    image: "/low-cut.jpg",
     duration: "30m",
   },
   {
