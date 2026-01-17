@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div className="relative w-full h-[90vh] mt-20">
         {" "}
         <Image
-          src="/background-img.jpg"
+          src="/Background-img.jpg"
           alt="Barber Hero"
           fill={true}
           className="object-cover opacity-40"
