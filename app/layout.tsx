@@ -35,7 +35,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "HOUSE OF 2TALK ENTERTAINMENT",
+  title: "2Talk Barbershop - Master Your Style",
   description:
     "Dynamic entertainment services and premium grooming, delivered with precision.",
 };
