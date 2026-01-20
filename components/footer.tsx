@@ -136,7 +136,7 @@ export default function Footer() {
 
             {/* Twitter */}
             <a
-              href="https://twitter.com/yourpage"
+              href="https://x.com/Houseof2talk"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-yellow-700/30 rounded-xl hover:bg-yellow-600 hover:text-black transition-all duration-300"
