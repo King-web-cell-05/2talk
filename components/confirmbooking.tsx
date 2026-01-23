@@ -163,7 +163,7 @@ Price: ${
 `;
 
     window.open(
-      `https://wa.me/2349065644691?text=${encodeURIComponent(message)}`,
+      `https://wa.me/2348082868332?text=${encodeURIComponent(message)}`,
       "_blank"
     );
 
