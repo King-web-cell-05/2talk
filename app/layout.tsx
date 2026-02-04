@@ -35,9 +35,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "2Talk Barbershop - Master Your Style",
+  title: "House of 2Talk Entertainment | Premium Barbing, Events, Content & Comedy",
   description:
-    "Dynamic entertainment services and premium grooming, delivered with precision.",
+    "House of 2Talk Entertainment offers top-tier barbing & grooming, unforgettable event planning, engaging content creation, and comedy entertainment. Elevate your experience with us today!",
 };
 
 export default function RootLayout({
