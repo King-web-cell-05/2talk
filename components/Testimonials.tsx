@@ -9,22 +9,22 @@ const testimonials = [
   {
     name: "Mr Ola",
     role: "Entrepreneur",
-    text: "Absolutely love the precision and attention to detail! Highly recommended.",
+    text: "Absolutely love the precision and attention to detail. Clean cuts, great atmosphere, and true professionalism.",
   },
   {
     name: "Mr Michael",
     role: "Entertainer",
-    text: "The service is top-notch. Professional, clean, and stylish!",
+    text: "Top-tier service every single time. The experience is premium from start to finish.",
   },
   {
     name: "Mr Kingsley",
     role: "Developer",
-    text: "I always feel confident after a visit. Exceptional work and vibe!",
+    text: "Consistent quality, sharp fades, and a confident finish. I always leave impressed.",
   },
   {
     name: "Mr Tunde",
     role: "Content Creator",
-    text: "The team exceeded all expectations. A true professional experience.",
+    text: "Professional, stylish, and well-organized. Easily one of the best grooming experiences around.",
   },
 ];
 
@@ -32,60 +32,85 @@ export default function TestimonialSection() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(
-      () => setCurrent((prev) => (prev + 1) % testimonials.length),
-      6000
-    );
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 6500);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative">
-      {/* Title */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">Clients Say</span>
-      </h2>
+    <section className="w-full bg-[#0D0D0D] text-white py-28 px-6 md:px-20">
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="
+          text-center text-4xl md:text-6xl font-extrabold tracking-wider
+          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
+          mb-20
+        "
+      >
+        Client Testimonials
+      </motion.h2>
 
       {/* Testimonial Card */}
-      <div className="relative flex justify-center items-stretch">
+      <div className="relative flex justify-center">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -25 }}
-            transition={{ duration: 0.6 }}
-            className="bg-[#1A1A1A] w-full max-w-4xl rounded-3xl p-10 shadow-xl 
-            border border-[#2a2a2a] text-center"
+            exit={{ opacity: 0, y: -30 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="
+              bg-[#111]/80 border border-[#222]
+              rounded-3xl p-12 md:p-16
+              shadow-2xl backdrop-blur-md
+              max-w-4xl w-full text-center
+            "
           >
             {/* Stars */}
-            <div className="flex justify-center gap-2 mb-6">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <Star key={i} size={22} className="text-yellow-600 fill-yellow-600" />
+            <div className="flex justify-center gap-2 mb-8">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-6 h-6 text-yellow-600 fill-yellow-600"
+                />
               ))}
             </div>
 
-            {/* Content */}
-            <p className="text-gray-300 text-xl italic leading-relaxed max-w-3xl mx-auto">
-              "{testimonials[current].text}"
+            {/* Quote */}
+            <p className="text-gray-300 text-xl md:text-2xl leading-relaxed italic max-w-3xl mx-auto">
+              “{testimonials[current].text}”
             </p>
 
-            <div className="mt-8">
-              <h3 className="text-2xl font-bold text-white">{testimonials[current].name}</h3>
-              <p className="text-gray-500 text-lg mt-1">{testimonials[current].role}</p>
+            {/* Author */}
+            <div className="mt-10">
+              <h3 className="text-2xl md:text-3xl font-bold text-white">
+                {testimonials[current].name}
+              </h3>
+              <p className="text-gray-500 text-lg mt-1">
+                {testimonials[current].role}
+              </p>
             </div>
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Pagination Dots */}
-      <div className="flex justify-center gap-4 mt-14">
+      {/* Pagination */}
+      <div className="flex justify-center gap-4 mt-16">
         {testimonials.map((_, idx) => (
-          <span
+          <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`h-3 w-3 rounded-full cursor-pointer transition-all duration-300 border border-yellow-600
-            ${idx === current ? "bg-yellow-600" : "bg-transparent"}`}
+            className={`
+              h-3 w-3 rounded-full transition-all duration-300
+              border border-yellow-600
+              ${idx === current ? "bg-yellow-600 scale-125" : "bg-transparent"}
+            `}
           />
         ))}
       </div>
