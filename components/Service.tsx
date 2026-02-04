@@ -2,134 +2,181 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Button from "@/components/ui/button";
+import {
+  Scissors,
+  CalendarDays,
+  Video,
+  Laugh,
+} from "lucide-react";
 
-const hairstyles = [
-  {
-    id: 1,
-    name: "Low Cut",
-    image: "/low-cut.jpg",
-    duration: "30m",
-  },
-  {
-    id: 2,
-    name: "Burst Fade",
-    image: "/burst-fade.jpg",
-    duration: "30m",
-  },
-   {
-    id: 3,
-    name: "Skin Punk",
-    image: "/skin-punk.jpg",
-    duration: "30m",
-  },
-  {
-    id: 4,
-    name: "Taper Fade",
-    image: "/taper-fade.jpg",
-    duration: "35m",
-  },
-  {
-    id: 5,
-    name: "Afro",
-    image: "/Afro.jpg",
-    duration: "30m",
-  },
-  {
-    id: 6,
-    name: "Cut & Dye",
-    image: "/cut-and-dye.jpg",
-    duration: "60m",
-  },
-  {
-    id: 7,
-    name: "Side Cut",
-    image: "/side-cut.jpg",
-    duration: "30m",
-  },
-  
+type ServiceType = "barbing" | "events" | "content" | "comedy";
+
+const serviceTabs = [
+  { id: "barbing", label: "Barbing", icon: Scissors },
+  { id: "events", label: "Events", icon: CalendarDays },
+  { id: "content", label: "Content", icon: Video },
+  { id: "comedy", label: "Comedy", icon: Laugh },
+] as const;
+
+const barbingServices = [
+  { id: 1, name: "Low Cut", image: "/low-cut.jpg", duration: "30 mins" },
+  { id: 2, name: "Burst Fade", image: "/burst-fade.jpg", duration: "30 mins" },
+  { id: 3, name: "Skin Punk", image: "/skin-punk.jpg", duration: "30 mins" },
+  { id: 4, name: "Taper Fade", image: "/taper-fade.jpg", duration: "35 mins" },
+  { id: 5, name: "Afro Styling", image: "/Afro.jpg", duration: "30 mins" },
+  { id: 6, name: "Cut & Dye", image: "/cut-and-dye.jpg", duration: "60 mins" },
+  { id: 7, name: "Side Cut", image: "/side-cut.jpg", duration: "45 mins" },
+
 ];
 
-export default function BookNowPage() {
-  const [selectedStyle, setSelectedStyle] = useState<number | null>(null);
+const eventServices = [
+  { title: "Event Planning", desc: "End-to-end planning for weddings, parties & corporate events." },
+  { title: "MC / Hosting", desc: "High-energy hosting that keeps your audience locked in." },
+  { title: "Stage Management", desc: "Smooth coordination and professional event flow." },
+];
+
+const contentServices = [
+  { title: "Video Content", desc: "Cinematic video creation for brands & individuals." },
+  { title: "Social Media Content", desc: "Short-form content designed to perform." },
+  { title: "Brand Storytelling", desc: "Creative narratives that elevate your brand." },
+];
+
+const comedyServices = [
+  { title: "Stand-Up Comedy", desc: "Live comedy performances for events & shows." },
+  { title: "Comedy Skits", desc: "Relatable skits crafted for digital platforms." },
+  { title: "Comedy Hosting", desc: "Fun, engaging hosting with natural crowd control." },
+];
+
+export default function ServicesPage() {
+  const [activeService, setActiveService] = useState<ServiceType>("barbing");
+  const router = useRouter();
 
   return (
-    <section className="w-full min-h-screen bg-[#0D0D0D] text-white py-24 px-6 md:px-20">
+    <section className="w-full min-h-screen bg-[#0D0D0D] text-white py-28 px-6 md:px-20">
       {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         className="
-          text-center text-4xl md:text-6xl font-extrabold tracking-wider 
+          text-center text-4xl md:text-6xl font-extrabold tracking-widest
           text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
           mb-20
         "
       >
-        Book Your Appointment
+        Our Services
       </motion.h1>
 
-      {/* Hairstyle Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14 place-items-center">
-        {hairstyles.map((style) => (
-          <motion.div
-            key={style.id}
-            onClick={() => setSelectedStyle(style.id)}
-            whileHover={{ scale: 1.04 }}
-            transition={{ duration: 0.25 }}
+      {/* Service Switcher */}
+      <div className="flex flex-wrap justify-center gap-6 mb-20">
+        {serviceTabs.map(({ id, label, icon: Icon }) => (
+          <motion.button
+            key={id}
+            onClick={() => setActiveService(id)}
+            whileHover={{ scale: 1.06 }}
             className={`
-              w-full max-w-md rounded-3xl overflow-hidden cursor-pointer
-              bg-[#111111]/60 backdrop-blur-xl border 
-              shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-all relative
+              flex items-center gap-4 px-8 py-5 rounded-2xl font-semibold
+              border transition-all duration-300
               ${
-                selectedStyle === style.id
-                  ? "border-yellow-500 shadow-[0_0_25px_rgba(255,200,0,0.55)]"
-                  : "border-[#1f1f1f]"
+                activeService === id
+                  ? "bg-yellow-600 text-black border-yellow-500 shadow-lg"
+                  : "bg-[#141414] text-gray-300 border-[#222] hover:bg-[#1d1d1d]"
               }
             `}
           >
-            {/* Image */}
-            <div className="w-full h-80 relative overflow-hidden">
-              <motion.img
-                src={style.image}
-                alt={style.name}
-                className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-            </div>
-
-            {/* Text */}
-            <div className="p-8 space-y-3">
-              <h3 className="text-2xl font-bold text-yellow-500 tracking-wide">
-                {style.name}
-              </h3>
-              <p className="text-sm text-gray-400">
-                Duration: {style.duration}
-              </p>
-            </div>
-
-            {/* Button */}
-            <div className="px-8 pb-8">
-              <Button
-                onClick={() =>
-                  (window.location.href = `/confirmbooking?styleId=${style.id}`)
-                }
-                className="
-                  w-full py-4 rounded-xl font-semibold text-black 
-                  bg-gradient-to-r from-yellow-600 to-yellow-500
-                  hover:from-yellow-500 hover:to-yellow-400
-                  transition-all ]
-                "
-              >
-                Book Now
-              </Button>
-            </div>
-          </motion.div>
+            <Icon className="w-6 h-6" />
+            <span className="tracking-wide">{label}</span>
+          </motion.button>
         ))}
       </div>
+
+      {/* Dynamic Content */}
+      <AnimatePresence mode="wait">
+        {activeService === "barbing" && (
+          <motion.div
+            key="barbing"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14"
+          >
+            {barbingServices.map((item) => (
+              <div
+                key={item.id}
+                className="bg-[#111]/80 border border-[#222] rounded-[2rem] overflow-hidden shadow-2xl"
+              >
+                <div className="h-80 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover hover:scale-110 transition duration-700"
+                  />
+                </div>
+
+                <div className="p-8 space-y-4">
+                  <h3 className="text-2xl font-bold text-yellow-500">
+                    {item.name}
+                  </h3>
+
+                  <p className="text-gray-400 text-lg">
+                    Duration: {item.duration}
+                  </p>
+
+                  {/* CONNECTED BUTTON */}
+                  <Button
+                    className="w-full py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-lg"
+                    onClick={() =>
+                      router.push(`/confirmbooking?styleId=${item.id}`)
+                    }
+                  >
+                    Book a session
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        )}
+
+        {[eventServices, contentServices, comedyServices].map(
+          (list, index) =>
+            activeService === ["events", "content", "comedy"][index] && (
+              <motion.div
+                key={activeService}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-14"
+              >
+                {list.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-[#111]/90 border border-[#222] rounded-[2rem] p-12 text-center shadow-2xl"
+                  >
+                    <h3 className="text-3xl font-bold text-yellow-500 mb-6">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+                      {item.desc}
+                    </p>
+
+                    <Button
+                      className="px-10 py-4 bg-yellow-600 hover:bg-yellow-500 text-black text-lg"
+                      onClick={() => router.push("/contact")}
+                    >
+                      Contact Us
+                    </Button>
+                  </div>
+                ))}
+              </motion.div>
+            )
+        )}
+      </AnimatePresence>
     </section>
   );
 }
