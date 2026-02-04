@@ -33,7 +33,10 @@ export default function Footer() {
             className="h-[130px] w-[130px] object-cover mb-4"
           />
           <p className="text-gray-400 text-lg leading-relaxed">
-            Premium grooming and modern barbering designed for the stylish man.
+            House of 2Talk Entertainment is your premier destination for top-tier
+            grooming, unforgettable events, engaging content, and comedy that
+            leaves you wanting more. We blend style, creativity, and fun to
+            deliver an experience like no other.
           </p>
         </div>  
 
@@ -47,7 +50,7 @@ export default function Footer() {
             {[
               { label: "Home", href: "/" },
               { label: "About", href: "/about" },
-              { label: "Book Now", href: "/book" },
+              { label: "Service hub", href: "/servicehub" },
               { label: "Contact", href: "/contact" },
             ].map((link) => (
               <li key={link.label}>

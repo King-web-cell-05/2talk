@@ -54,8 +54,8 @@ ${message}
         transition={{ duration: 1 }}
         className="text-center text-gray-300 text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed"
       >
-        Premium grooming deserves premium service. Contact us to book
-        appointments, ask questions, or walk in for a fresh cut.
+        Whether you have questions, want to book a service, or just want to say hi,
+        we're here to listen. Reach out to us and let's create something amazing together!
       </motion.p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-20">
