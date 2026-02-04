@@ -15,7 +15,7 @@ const hairstyles = [
     id: 1,
     name: "Low Cut",
     prices: { shop: 3000, home: "Negotiable" },
-    image: "/placeholder1.jpg",
+    image: "/low-cut.jpg",
     duration: "30m",
   },
   {
