@@ -10,7 +10,7 @@ const services = [
     description:
       "Expert haircuts, beard grooming, hairline carving, and treatments delivered with precision and style.",
     image: "/haircut-and-styling.jpg",
-    link: "/services/barbing",
+    link: "/servicehub",
     cta: "Book a Session",
   },
   {
@@ -18,7 +18,7 @@ const services = [
     description:
       "From intimate celebrations to large-scale events, we plan, coordinate, and execute unforgettable experiences.",
     image: "/event-planning.jpg",
-    link: "/services/events",
+    link: "/servicehub",
     cta: "Plan an Event",
   },
   {
@@ -26,7 +26,7 @@ const services = [
     description:
       "High-quality digital content including skits, promotional videos, social media visuals, and brand storytelling.",
     image: "/content-creation.jpg",
-    link: "/services/content",
+    link: "/servicehub",
     cta: "Start a Project",
   },
   {
@@ -34,7 +34,7 @@ const services = [
     description:
       "Live comedy, skits, MC services, and creative entertainment that keeps your audience engaged and laughing.",
     image: "/comedy-entertainment.jpg",
-    link: "/services/comedy",
+    link: "/servicehub",
     cta: "Book Entertainment",
   },
 ];
