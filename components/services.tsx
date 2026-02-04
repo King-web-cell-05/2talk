@@ -1,28 +1,41 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
+
 import Link from "next/link";
 import Button from "./ui/button";
 
 const services = [
   {
-    title: "Haircut & Styling",
-    description: "Precision cuts and modern styling to match your personality.",
+    title: "Premium Barbing & Grooming",
+    description:
+      "Expert haircuts, beard grooming, hairline carving, and treatments delivered with precision and style.",
     image: "/haircut-and-styling.jpg",
+    link: "/services/barbing",
+    cta: "Book a Session",
   },
   {
-    title: "Beard Grooming",
-    description: "Professional beard shaping and care for a polished look.",
-    image: "/beard-grooming-img.jpg",
+    title: "Event Planning & Management",
+    description:
+      "From intimate celebrations to large-scale events, we plan, coordinate, and execute unforgettable experiences.",
+    image: "/event-planning.jpg",
+    link: "/services/events",
+    cta: "Plan an Event",
   },
   {
-    title: "Hairline Carving",
-    description: "Smooth shaves and clean trims for a sharp, refined style.",
-    image: "/hairline-carve-img.jpg",
+    title: "Content Creation",
+    description:
+      "High-quality digital content including skits, promotional videos, social media visuals, and brand storytelling.",
+    image: "/content-creation.jpg",
+    link: "/services/content",
+    cta: "Start a Project",
   },
   {
-    title: "Hair Treatment",
-    description: "Premium treatments to nourish and revitalize your hair.",
-    image: "/hair-treatment-img.jpeg",
+    title: "Comedy & Entertainment",
+    description:
+      "Live comedy, skits, MC services, and creative entertainment that keeps your audience engaged and laughing.",
+    image: "/comedy-entertainment.jpg",
+    link: "/services/comedy",
+    cta: "Book Entertainment",
   },
 ];
 
@@ -31,9 +44,8 @@ export default function ServicesSection() {
     <section className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative">
       {/* Title */}
       <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        Experience Our{" "}
-        <span className=" text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">
-          {" "}
+        Our{" "}
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500">
           Premium Services
         </span>
       </h2>
@@ -43,11 +55,14 @@ export default function ServicesSection() {
         {services.map((service, idx) => (
           <div
             key={idx}
-            className="bg-[#1A1A1A] rounded-3xl overflow-hidden shadow-xl border border-[#2a2a2a]
+            className="
+              bg-[#1A1A1A] rounded-3xl overflow-hidden
+              shadow-xl border border-[#2a2a2a]
               hover:scale-[1.04] hover:shadow-[0_0_25px_rgba(0,0,0,0.6)]
-              transition-all duration-300"
+              transition-all duration-300
+            "
           >
-            {/* Bigger Image Box */}
+            {/* Image */}
             <div className="h-64 w-full overflow-hidden">
               <img
                 src={service.image}
@@ -57,20 +72,25 @@ export default function ServicesSection() {
             </div>
 
             {/* Content */}
-            <div className="p-8 text-center space-y-4">
-              <h3 className="text-2xl font-bold text-white">{service.title}</h3>
+            <div className="p-8 text-center space-y-5">
+              <h3 className="text-2xl font-bold text-white">
+                {service.title}
+              </h3>
 
               <p className="text-gray-400 text-[1rem] leading-relaxed">
                 {service.description}
               </p>
 
-              {/* Button */}
-              <Link href="/book">
+              {/* CTA */}
+              <Link href={service.link}>
                 <Button
-                  className="bg-yellow-600 hover:bg-yellow-500 text-black w-full py-3 text-md 
-                  font-semibold rounded-md transition-all duration-300 shadow-md"
+                  className="
+                    bg-yellow-600 hover:bg-yellow-500 text-black
+                    w-full py-3 text-md font-semibold
+                    rounded-md transition-all duration-300 shadow-md
+                  "
                 >
-                  Book Now
+                  {service.cta}
                 </Button>
               </Link>
             </div>

@@ -18,19 +18,25 @@ export default function CallToActionSection() {
         viewport={{ once: true }}
         className="max-w-4xl mx-auto text-center relative z-10"
       >
-        <h2 className="text-4xl md:text-5xl font-bold  mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500  drop-shadow-lg">
-          Ready to Look Sharp?
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500 drop-shadow-lg">
+          Ready to Elevate Your Experience?
         </h2>
 
         <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-          Reserve your spot today and experience premium grooming and modern barbering. We are
-           are ready to give you the look you deserve.
+          From premium grooming to event planning, content creation, and comedy entertainment —
+          House of 2Talk delivers excellence that stands out.
         </p>
 
         <div className="flex justify-center mt-10">
-          <Link href="/book">
-            <Button className="bg-yellow-600 hover:bg-yellow-500 text-black font-semibold px-6 py-3 rounded-md transition-all duration-300 ">
-              Book Your Appointment
+          <Link href="/contact">
+            <Button
+              className="
+                bg-yellow-600 hover:bg-yellow-500 text-black
+                font-semibold px-8 py-4 rounded-md
+                transition-all duration-300 shadow-lg
+              "
+            >
+              Contact us
             </Button>
           </Link>
         </div>
