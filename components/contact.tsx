@@ -68,7 +68,7 @@ ${message}
         >
           <div className="bg-[#111]/80 border border-[#222] rounded-3xl p-10 shadow-2xl backdrop-blur-md">
             <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-8 tracking-wide">
-              Barbershop Details
+              Contact Information
             </h2>
 
             <div className="space-y-7">

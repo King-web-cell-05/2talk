@@ -84,7 +84,7 @@ export default function ServicesPage() {
               whileTap={{ scale: 0.95 }}
               className={`
                 relative overflow-hidden
-                flex items-center gap-5 px-10 py-6 rounded-2xl
+                flex items-center gap-3 px-3 py-2 rounded-2xl
                 border backdrop-blur-xl transition-all duration-300
                 ${
                   isActive
@@ -98,12 +98,12 @@ export default function ServicesPage() {
               {/* Icon */}
               <motion.div
                 animate={{
-                  scale: isActive ? 1.15 : 1,
+                  scale: isActive ? 0.9 : 1,
                   rotate: isActive ? 0 : -8,
                 }}
                 transition={{ duration: 0.3 }}
                 className={`
-                  relative z-10 p-4 rounded-xl
+                  relative z-10 p-3 rounded-xl
                   ${
                     isActive
                       ? "bg-yellow-500 text-black shadow-lg"
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                   }
                 `}
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-5 h-5" />
               </motion.div>
 
               {/* Label */}
@@ -132,7 +132,7 @@ export default function ServicesPage() {
               {isActive && (
                 <motion.div
                   layoutId="activeIndicator"
-                  className="absolute bottom-0 left-1/2 h-[3px] w-20 -translate-x-1/2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600"
+                  className="absolute bottom-0 left-1/2 h-[2px] w-20 -translate-x-1/2 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-600"
                 />
               )}
             </motion.button>
