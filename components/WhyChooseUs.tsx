@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import {
   Scissors,
   CalendarCheck,
@@ -8,6 +8,20 @@ import {
   Laugh,
   ShieldCheck,
 } from "lucide-react";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+});
+
+const body = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
 const reasons = [
   {
@@ -37,62 +51,88 @@ const reasons = [
   },
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
 export default function WhyChooseUs() {
+  const reduce = useReducedMotion();
+
+  const list: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: reduce ? 0 : 0.12 } },
+  };
+
+  const row: Variants = {
+    hidden: { opacity: 0, y: reduce ? 0 : 24 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: reduce ? 0 : 0.7, ease },
+    },
+  };
+
   return (
-    <section className="w-full bg-[#0D0D0D] text-white py-28 px-6 md:px-20">
-      {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="text-center max-w-4xl mx-auto mb-20"
-      >
-        <h2
-          className="
-                text-center text-4xl md:text-6xl font-extrabold tracking-wider
-          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
-          
-          "
-        >
-          Why Choose Us
-        </h2>
-
-        <p className="text-gray-400 text-lg md:text-xl mt-10 leading-relaxed">
-          House of 2Talk Entertainment is more than a barbing brand.  
-          We are a creative hub delivering grooming, events, content, and comedy
-          with the same level of excellence and professionalism.
-        </p>
-      </motion.div>
-
-      {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-14">
-        {reasons.map(({ icon: Icon, title, desc }, index) => (
-          <motion.div
-            key={title}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.08 }}
-            className="
-              bg-[#111]/80 border border-[#222]
-              rounded-3xl p-10 md:p-12
-              shadow-2xl backdrop-blur-md
-            "
+    <section
+      id="why-choose-us"
+      aria-labelledby="why-heading"
+      className={`${display.variable} ${body.variable} w-full bg-[#0d0b08] px-6 py-24 text-[#f4efe6] [font-family:var(--font-body)] md:px-16 md:py-32`}
+    >
+      <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-24">
+        {/* Header (sticks while the list scrolls on desktop) */}
+        <header className="lg:sticky lg:top-32 lg:self-start">
+          <h2
+            id="why-heading"
+            className="[font-family:var(--font-display)] text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl"
           >
-            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-[#1a1a1a] mb-8">
-              <Icon className="w-8 h-8 text-yellow-600" />
-            </div>
+            <span className="bg-gradient-to-b from-[#f6e7b4] via-[#d4ad55] to-[#9c7a2e] bg-clip-text text-transparent">
+              Why Choose Us
+            </span>
+          </h2>
+          <div
+            aria-hidden
+            className="mt-6 h-px w-24 bg-gradient-to-r from-[#d4ad55] to-transparent"
+          />
+          <p className="mt-6 max-w-md text-base leading-relaxed text-[#f4efe6]/70 md:text-lg">
+            House of 2Talk Entertainment is more than a barbing brand. We are a
+            creative hub delivering grooming, events, content, and comedy with
+            the same level of excellence and professionalism.
+          </p>
+        </header>
 
-            <h3 className="text-2xl font-bold text-white mb-4">
-              {title}
-            </h3>
+        {/* Reasons */}
+        <motion.ul
+          variants={list}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="border-t border-[#d4ad55]/25"
+        >
+          {reasons.map(({ icon: Icon, title, desc }) => (
+            <motion.li
+              key={title}
+              variants={row}
+              className="group relative flex gap-6 border-b border-[#d4ad55]/25 py-8 md:gap-8 md:py-10"
+            >
+              {/* Gold line that grows along the row on hover */}
+              <span
+                aria-hidden
+                className="absolute -bottom-px left-0 h-px w-full origin-left scale-x-0 bg-[#d4ad55] transition-transform duration-500 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+              />
 
-            <p className="text-gray-400 text-lg leading-relaxed">
-              {desc}
-            </p>
-          </motion.div>
-        ))}
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-[#d4ad55]/40 text-[#e9cf8a] transition-colors duration-300 group-hover:border-[#d4ad55] group-hover:bg-[#d4ad55]/10 md:h-16 md:w-16">
+                <Icon className="h-6 w-6 md:h-7 md:w-7" strokeWidth={1.5} />
+              </span>
+
+              <div>
+                <h3 className="[font-family:var(--font-display)] text-3xl font-semibold leading-tight text-[#f4efe6] md:text-4xl">
+                  {title}
+                </h3>
+                <p className="mt-3 max-w-xl leading-relaxed text-[#f4efe6]/70">
+                  {desc}
+                </p>
+              </div>
+            </motion.li>
+          ))}
+        </motion.ul>
       </div>
     </section>
   );

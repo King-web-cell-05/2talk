@@ -1,151 +1,243 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Menu,
-  X,
-  Home,
-  Info,
-  Book,
-  Phone,
-  Instagram,
-  Facebook,
-} from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Menu, X, Instagram, Facebook } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+});
+
+const body = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Service hub", href: "/servicehub" },
+  { name: "Contact", href: "/contact" },
+];
+
+const socialLinks = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/ho2_entertainment?igsh=MTVlNjVoZnloY29jbA==",
+    icon: <Instagram size={20} />,
+  },
+  { label: "Facebook", href: "https://facebook.com", icon: <Facebook size={20} /> },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/2348082868332",
+    icon: <FaWhatsapp size={20} />,
+  },
+];
+
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e3c06a]";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const reduce = useReducedMotion();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  // Solid bar once the page has scrolled
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/", icon: <Home size={22} /> },
-    { name: "About", href: "/about", icon: <Info size={22} /> },
-    { name: "Service hub", href: "/servicehub", icon: <Book size={22} /> },
-    { name: "Contact", href: "/contact", icon: <Phone size={22} /> },
-  ];
+  // Close the menu when the route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
-  const socialLinks = [
-    { href: "https://www.instagram.com/ho2_entertainment?igsh=MTVlNjVoZnloY29jbA==", icon: <Instagram size={24} /> },
-    { href: "https://facebook.com", icon: <Facebook size={24} /> },
-    { href: "https://wa.me/2348082868332", icon: <FaWhatsapp size={24} /> },
-  ];
+  // Lock body scroll and allow Escape to close while the menu is open
+  useEffect(() => {
+    if (!isOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [isOpen]);
+
+  const solid = scrolled || isOpen;
 
   return (
-    <nav className="w-full fixed top-0 left-0 z-50 bg-[#111111]/95 backdrop-blur-md border-b border-[#2a2a2a] text-white shadow-lg">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-14 h-22">
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="relative cursor-pointer select-none flex items-center justify-center h-20 w-20"
+    <div className={`${display.variable} ${body.variable} [font-family:var(--font-body)]`}>
+      <header
+        className={`fixed left-0 top-0 z-50 w-full text-[#f4efe6] transition-[background-color,border-color,box-shadow] duration-500 ${
+          solid
+            ? "border-b border-[#d4ad55]/15 bg-[#0d0b08]/85 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+            : "border-b border-transparent bg-gradient-to-b from-[#0d0b08]/80 to-transparent"
+        }`}
+      >
+        <nav
+          aria-label="Main"
+          className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-14"
         >
-          <img
-            src="/2talk-logo-img.png"
-            alt="2Talk Logo"
-            className="h-[160px] w-[160px] object-cover mb-4"
-          />
-        </Link>
+          {/* Logo */}
+          <Link
+            href="/"
+            aria-label="House of 2Talk Entertainment, home"
+            className={`relative block h-30 w-30 shrink-0 ${focusRing}`}
+          >
+            <Image
+              src="/2talk-logo-img.png"
+              alt="2Talk logo"
+              fill
+              sizes="56px"
+              priority
+              className="object-contain"
+            />
+          </Link>
 
-        {/* DESKTOP NAV LINKS */}
-        <div className="hidden md:flex items-center gap-10 font-[var(--font-rajdhani)] text-lg">
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`relative transition-all duration-300 ${
-                  isActive ? "text-yellow-600" : "text-white"
-                } hover:text-gray-400`}
-              >
-                {link.name}
-                {isActive && (
-                  <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-yellow-600 rounded-full"></span>
-                )}
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* MOBILE MENU ICON */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-gray-300 focus:outline-none transition-all hover:text-gray-400"
-        >
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
-        </button>
-      </div>
-
-      {/* MOBILE MENU */}
-      {isOpen && (
-        <div className="md:hidden bg-[#111111] border-t border-[#2a2a2a] px-6 py-6 space-y-6 font-[var(--font-rajdhani)] animate-slideDown relative shadow-xl">
-          {/* GOLD TECH GRID */}
-          <div className="absolute inset-0 opacity-[0.05] bg-[linear-gradient(90deg,#D4A65A40_1px,transparent_1px),linear-gradient(#D4A65A40_1px,transparent_1px)] bg-[size:38px_38px] pointer-events-none"></div>
-
-          {/* MOBILE NAV LINKS */}
-          <div className="relative space-y-5">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-4 text-lg tracking-wide group"
-                >
-                  <span
-                    className={`transition-colors ${
-                      isActive ? "text-yellow-600" : "text-white"
-                    } group-hover:text-gray-400`}
-                  >
-                    {link.icon}
-                  </span>
-                  <span className="relative inline-block">
-                    <span
-                      className={`transition-colors ${
-                        isActive ? "text-yellow-600" : "text-white"
-                      } group-hover:text-gray-400`}
+          {/* Desktop links */}
+          <div className="hidden items-center gap-10 md:flex">
+            <ul className="flex items-center gap-9">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      className={`group relative py-2 text-[15px] font-medium tracking-wide transition-colors duration-300 ${focusRing} ${
+                        isActive
+                          ? "text-[#e9cf8a]"
+                          : "text-[#f4efe6]/80 hover:text-[#f4efe6]"
+                      }`}
                     >
                       {link.name}
-                    </span>
-                    {isActive && (
-                      <span className="absolute left-0 -bottom-1 w-full h-[3px] bg-yellow-600 rounded-full"></span>
-                    )}
-                  </span>
-                </Link>
-              );
-            })}
+                      <span
+                        aria-hidden
+                        className={`absolute -bottom-0.5 left-0 h-px w-full origin-left bg-[#d4ad55] transition-transform duration-300 ${
+                          isActive
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <Link
+              href="/contact"
+              className={`rounded-sm bg-gradient-to-b from-[#e3c06a] to-[#b8903a] px-6 py-2.5 text-sm font-semibold tracking-wide text-[#14100a] shadow-[0_6px_24px_-8px_rgba(212,173,85,0.6)] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-8px_rgba(212,173,85,0.8)] ${focusRing}`}
+            >
+              Book a session
+            </Link>
           </div>
 
-          {/* SOCIAL ICONS */}
-          <div className="flex items-center gap-6 relative mt-4">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            onClick={() => setIsOpen((v) => !v)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            className={`-mr-2 p-2 text-[#f4efe6] transition-colors hover:text-[#e9cf8a] md:hidden ${focusRing}`}
+          >
+            {isOpen ? <X size={30} /> : <Menu size={30} />}
+          </button>
+        </nav>
+      </header>
+
+      {/* Mobile menu: sits outside the header so backdrop-blur doesn't trap its fixed positioning */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.3 }}
+            className="fixed inset-x-0 bottom-0 top-20 z-40 flex flex-col overflow-y-auto bg-[#0d0b08]/97 px-6 pb-8 pt-6 text-[#f4efe6] backdrop-blur-xl md:hidden"
+          >
+            <ul className="flex-1">
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, y: reduce ? 0 : 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: reduce ? 0 : 0.5,
+                      delay: reduce ? 0 : 0.08 * i + 0.1,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="border-b border-[#d4ad55]/15"
+                  >
+                    <Link
+                      href={link.href}
+                      aria-current={isActive ? "page" : undefined}
+                      onClick={() => setIsOpen(false)}
+                      className={`block py-5 [font-family:var(--font-display)] text-4xl font-semibold transition-colors ${focusRing} ${
+                        isActive
+                          ? "text-[#e9cf8a]"
+                          : "text-[#f4efe6] hover:text-[#e9cf8a]"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.li>
+                );
+              })}
+            </ul>
+
+            <div className="mt-8 space-y-8">
+              <Link
+                href="/contact"
                 onClick={() => setIsOpen(false)}
-                className="p-3 border border-gray-500 rounded-xl hover:text-gray-300 hover:bg-[#1c1c1c] transition-all duration-300"
+                className={`block rounded-sm bg-gradient-to-b from-[#e3c06a] to-[#b8903a] px-6 py-3.5 text-center text-sm font-semibold tracking-wide text-[#14100a] ${focusRing}`}
               >
-                {social.icon}
-              </a>
-            ))}
-          </div>
+                Book a session
+              </Link>
 
-          {/* DIVIDER */}
-          <div className="w-full h-[1px] bg-[#2a2a2a] mt-4"></div>
+              <div className="flex items-center gap-3">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={`rounded-full border border-[#d4ad55]/30 p-3 text-[#f4efe6]/80 transition duration-300 hover:border-[#d4ad55] hover:text-[#e9cf8a] ${focusRing}`}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
 
-          {/* COPYRIGHT */}
-          <p className="text-xs text-gray-500 pt-4">
-            © 2025 HOUSE OF 2TALK ENTERTAINMENT
-          </p>
-        </div>
-      )}
-    </nav>
+              <p className="text-xs text-[#f4efe6]/50">
+                © {new Date().getFullYear()} House of 2Talk Entertainment
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }

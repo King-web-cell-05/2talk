@@ -1,101 +1,164 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import Button from "./ui/button";
+import { ArrowUpRight } from "lucide-react";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+});
+
+const body = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
 const services = [
   {
-    title: "Premium Barbing & Grooming",
+    title: "Barbing & Grooming",
+    short: "Barbing",
     description:
-      "Expert haircuts, beard grooming, hairline carving, and treatments delivered with precision and style.",
+      "Haircuts, beard grooming, hairline carving and treatments, done with precision and style.",
     image: "/haircut-and-styling.jpg",
     link: "/servicehub",
-    cta: "Book a Session",
+    cta: "Book a session",
   },
   {
     title: "Event Planning & Management",
+    short: "Events",
     description:
-      "From intimate celebrations to large-scale events, we plan, coordinate, and execute unforgettable experiences.",
+      "From intimate celebrations to large-scale events, we plan, coordinate and run the whole thing.",
     image: "/event-planning.jpg",
     link: "/servicehub",
-    cta: "Plan an Event",
+    cta: "Plan an event",
   },
   {
     title: "Content Creation",
+    short: "Content",
     description:
-      "High-quality digital content including skits, promotional videos, social media visuals, and brand storytelling.",
+      "Skits, promo videos, social visuals and brand storytelling that look as good as they sound.",
     image: "/content-creation.jpg",
     link: "/servicehub",
-    cta: "Start a Project",
+    cta: "Start a project",
   },
   {
     title: "Comedy & Entertainment",
+    short: "Comedy",
     description:
-      "Live comedy, skits, MC services, and creative entertainment that keeps your audience engaged and laughing.",
+      "Live comedy, skits and MC services that keep your audience engaged and laughing.",
     image: "/comedy-entertainment.jpg",
     link: "/servicehub",
-    cta: "Book Entertainment",
+    cta: "Book entertainment",
   },
 ];
 
 export default function ServicesSection() {
+  const [active, setActive] = useState(0);
+
   return (
-    <section className="w-full bg-[#111111] text-white py-24 px-6 md:px-20 relative">
-      {/* Title */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16 text-center drop-shadow-lg">
-        Our{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-600 to-yellow-500">
-          Premium Services
-        </span>
-      </h2>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 max-w-[90rem] mx-auto">
-        {services.map((service, idx) => (
-          <div
-            key={idx}
-            className="
-              bg-[#1A1A1A] rounded-3xl overflow-hidden
-              shadow-xl border border-[#2a2a2a]
-              hover:scale-[1.04] hover:shadow-[0_0_25px_rgba(0,0,0,0.6)]
-              transition-all duration-300
-            "
+    <section
+      id="services"
+      aria-labelledby="services-heading"
+      className={`${display.variable} ${body.variable} w-full bg-[#0d0b08] px-6 py-24 text-[#f4efe6] [font-family:var(--font-body)] md:px-16 md:py-32`}
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <header className="mb-12 md:mb-16">
+          <h2
+            id="services-heading"
+            className="[font-family:var(--font-display)] text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl"
           >
-            {/* Image */}
-            <div className="h-64 w-full overflow-hidden">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="h-full w-full object-cover"
-              />
-            </div>
+            <span className="bg-gradient-to-b from-[#f6e7b4] via-[#d4ad55] to-[#9c7a2e] bg-clip-text text-transparent">
+              Our Premium Services
+            </span>
+          </h2>
+          <div
+            aria-hidden
+            className="mt-6 h-px w-24 bg-gradient-to-r from-[#d4ad55] to-transparent"
+          />
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[#f4efe6]/70 md:text-lg">
+            Whether you need a sharp cut, a full event or a stage act, it all
+            comes from the same team.
+          </p>
+        </header>
 
-            {/* Content */}
-            <div className="p-8 text-center space-y-5">
-              <h3 className="text-2xl font-bold text-white">
-                {service.title}
-              </h3>
+        {/* Panels */}
+        <ul className="flex flex-col gap-4 lg:h-[40rem] lg:flex-row lg:gap-3">
+          {services.map((service, i) => {
+            const isActive = i === active;
 
-              <p className="text-gray-400 text-[1rem] leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* CTA */}
-              <Link href={service.link}>
-                <Button
-                  className="
-                    bg-yellow-600 hover:bg-yellow-500 text-black
-                    w-full py-3 text-md font-semibold
-                    rounded-md transition-all duration-300 shadow-md
-                  "
+            return (
+              <li
+                key={service.title}
+                onMouseEnter={() => setActive(i)}
+                className={`relative min-h-[28rem] overflow-hidden rounded-sm border border-[#d4ad55]/20 transition-[flex-grow,border-color] duration-700 ease-out motion-reduce:transition-none lg:min-h-0 lg:flex-1 ${
+                  isActive
+                    ? "lg:grow-[4] lg:border-[#d4ad55]/50"
+                    : "lg:grow"
+                }`}
+              >
+                <Link
+                  href={service.link}
+                  onFocus={() => setActive(i)}
+                  className="group absolute inset-0 flex flex-col justify-end focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-[#e3c06a]"
                 >
-                  {service.cta}
-                </Button>
-              </Link>
-            </div>
-          </div>
-        ))}
+                  {/* Photo */}
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className={`object-cover transition-[filter,transform] duration-700 ease-out motion-reduce:transition-none ${
+                      isActive
+                        ? "lg:scale-100 lg:grayscale-0"
+                        : "lg:scale-110 lg:grayscale"
+                    }`}
+                  />
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 bg-gradient-to-t from-[#0d0b08] via-[#0d0b08]/50 to-[#0d0b08]/10"
+                  />
+
+                  {/* Collapsed label (desktop only) */}
+                  <span
+                    aria-hidden
+                    className={`absolute bottom-8 left-1/2 hidden -translate-x-1/2 rotate-180 [font-family:var(--font-display)] text-3xl font-semibold text-[#e9cf8a] transition-opacity duration-500 [writing-mode:vertical-rl] lg:block ${
+                      isActive ? "opacity-0" : "opacity-100 delay-300"
+                    }`}
+                  >
+                    {service.short}
+                  </span>
+
+                  {/* Expanded content (always shown on mobile) */}
+                  <div
+                    className={`relative p-7 transition-[opacity,transform] duration-500 motion-reduce:transition-none md:p-10 lg:w-[30rem] ${
+                      isActive
+                        ? "lg:translate-y-0 lg:opacity-100 lg:delay-300"
+                        : "lg:pointer-events-none lg:translate-y-4 lg:opacity-0"
+                    }`}
+                  >
+                    <h3 className="[font-family:var(--font-display)] text-4xl font-semibold leading-tight text-[#f4efe6] md:text-5xl">
+                      {service.title}
+                    </h3>
+                    <p className="mt-4 max-w-md leading-relaxed text-[#f4efe6]/75">
+                      {service.description}
+                    </p>
+                    <span className="mt-7 inline-flex items-center gap-2 rounded-sm bg-gradient-to-b from-[#e3c06a] to-[#b8903a] px-6 py-3 text-sm font-semibold tracking-wide text-[#14100a] shadow-[0_8px_30px_-8px_rgba(212,173,85,0.6)] transition duration-300 group-hover:-translate-y-0.5">
+                      {service.cta}
+                      <ArrowUpRight size={16} />
+                    </span>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
