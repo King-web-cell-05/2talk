@@ -1,9 +1,22 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
+
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-display",
+});
+
+const body = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
 const testimonials = [
   {
@@ -28,91 +41,133 @@ const testimonials = [
   },
 ];
 
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e3c06a]";
+
 export default function TestimonialSection() {
   const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const reduce = useReducedMotion();
 
+  // Auto-rotate, paused on hover/focus and disabled for reduced motion
   useEffect(() => {
+    if (paused || reduce) return;
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % testimonials.length);
     }, 6500);
-
     return () => clearInterval(interval);
-  }, []);
+  }, [paused, reduce, current]);
+
+  const active = testimonials[current];
 
   return (
-    <section className="w-full bg-[#0D0D0D] text-white py-28 px-6 md:px-20">
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="
-          text-center text-4xl md:text-6xl font-extrabold tracking-wider
-          text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600
-          mb-20
-        "
+    <section
+      id="testimonials"
+      aria-labelledby="testimonials-heading"
+      className={`${display.variable} ${body.variable} w-full bg-[#0d0b08] px-6 py-24 text-[#f4efe6] [font-family:var(--font-body)] md:px-16 md:py-32`}
+    >
+      <div
+        className="mx-auto max-w-7xl"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
       >
-        Client Testimonials
-      </motion.h2>
-
-      {/* Testimonial Card */}
-      <div className="relative flex justify-center">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="
-              bg-[#111]/80 border border-[#222]
-              rounded-3xl p-12 md:p-16
-              shadow-2xl backdrop-blur-md
-              max-w-4xl w-full text-center
-            "
+        {/* Header */}
+        <header className="mb-14 md:mb-20">
+          <h2
+            id="testimonials-heading"
+            className="[font-family:var(--font-display)] text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl"
           >
-            {/* Stars */}
-            <div className="flex justify-center gap-2 mb-8">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-6 h-6 text-yellow-600 fill-yellow-600"
-                />
-              ))}
-            </div>
-
-            {/* Quote */}
-            <p className="text-gray-300 text-xl md:text-2xl leading-relaxed italic max-w-3xl mx-auto">
-              “{testimonials[current].text}”
-            </p>
-
-            {/* Author */}
-            <div className="mt-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-white">
-                {testimonials[current].name}
-              </h3>
-              <p className="text-gray-500 text-lg mt-1">
-                {testimonials[current].role}
-              </p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center gap-4 mt-16">
-        {testimonials.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrent(idx)}
-            className={`
-              h-3 w-3 rounded-full transition-all duration-300
-              border border-yellow-600
-              ${idx === current ? "bg-yellow-600 scale-125" : "bg-transparent"}
-            `}
+            <span className="bg-gradient-to-b from-[#f6e7b4] via-[#d4ad55] to-[#9c7a2e] bg-clip-text text-transparent">
+              Client Testimonials
+            </span>
+          </h2>
+          <div
+            aria-hidden
+            className="mt-6 h-px w-24 bg-gradient-to-r from-[#d4ad55] to-transparent"
           />
-        ))}
+        </header>
+
+        {/* Quote */}
+        <div
+          role="tabpanel"
+          id="testimonial-panel"
+          aria-labelledby={`testimonial-tab-${current}`}
+          className="min-h-[22rem] md:min-h-[24rem]"
+        >
+          <AnimatePresence mode="wait">
+            <motion.figure
+              key={current}
+              initial={{ opacity: 0, y: reduce ? 0 : 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: reduce ? 0 : -12 }}
+              transition={{ duration: reduce ? 0 : 0.6, ease }}
+              className="max-w-5xl"
+            >
+              <div
+                className="flex gap-1.5"
+                role="img"
+                aria-label="Rated 5 out of 5 stars"
+              >
+                {[...Array(5)].map((_, i) => (
+                  <Star
+                    key={i}
+                    aria-hidden
+                    className="h-5 w-5 fill-[#d4ad55] text-[#d4ad55]"
+                  />
+                ))}
+              </div>
+
+              <blockquote className="mt-8 [font-family:var(--font-display)] text-3xl font-medium italic leading-[1.25] text-[#f4efe6] sm:text-4xl md:text-6xl md:leading-[1.15]">
+                “{active.text}”
+              </blockquote>
+
+              <figcaption className="mt-10">
+                <span className="block text-lg font-semibold text-[#e9cf8a]">
+                  {active.name}
+                </span>
+                <span className="mt-1 block text-[#f4efe6]/60">
+                  {active.role}
+                </span>
+              </figcaption>
+            </motion.figure>
+          </AnimatePresence>
+        </div>
+
+        {/* Selector: client names */}
+        <div
+          role="tablist"
+          aria-label="Choose a testimonial"
+          className="mt-14 grid grid-cols-2 gap-x-6 gap-y-4 md:mt-20 md:grid-cols-4"
+        >
+          {testimonials.map((t, idx) => {
+            const isActive = idx === current;
+            return (
+              <button
+                key={t.name}
+                type="button"
+                role="tab"
+                id={`testimonial-tab-${idx}`}
+                aria-selected={isActive}
+                aria-controls="testimonial-panel"
+                onClick={() => setCurrent(idx)}
+                className={`border-t pt-4 text-left transition-colors duration-300 ${focusRing} ${
+                  isActive
+                    ? "border-[#d4ad55] text-[#e9cf8a]"
+                    : "border-[#d4ad55]/20 text-[#f4efe6]/55 hover:border-[#d4ad55]/60 hover:text-[#f4efe6]"
+                }`}
+              >
+                <span className="block font-semibold">{t.name}</span>
+                <span className="mt-0.5 block text-sm opacity-80">
+                  {t.role}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
